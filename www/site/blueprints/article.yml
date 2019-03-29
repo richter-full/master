@@ -1,0 +1,10 @@
+title: Article
+pages: false
+num: date
+files: true
+fields:
+  info: _info
+
+  assets: _assets
+
+  structur: _structure

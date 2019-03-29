@@ -2,8 +2,14 @@
   "modules": {
     "core": "https://github.com/getkirby/kirby.git",
     "panel": "https://github.com/getkirby/panel.git",
-    "fields": {},
-    "plugins": {},
+    "fields": {
+      "tabs": "https://github.com/afbora/Kirby-Tabs-Field.git",
+      "gallery": "https://github.com/TimOetting/kirby-gallery.git",
+      "rangeslider": "https://github.com/JonasDoebertin/kirby-range-slider.git"
+    },
+    "plugins": {
+      "selector": "https://github.com/storypioneers/kirby-selector.git"
+    },
     "tags": {},
     "widgets": {}
   }

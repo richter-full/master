@@ -1,0 +1,101 @@
+type: group
+fields:
+  tab3:
+    label: Structure
+    type: tabs
+
+  infoStructure:
+    label: Structure
+    type: headline
+
+  contentStructure:
+    label: Content Structure 
+    type: structure
+    entry: >
+      <strong>{{selector}}</strong><br/>
+      Type: {{type}}<br/>
+      Start: {{start}}<br/> 
+      Span: {{span}}
+    default:
+      - 
+        selector: meta
+        type: meta
+        start: 1
+        span: 6
+      - 
+        selector: quote
+        type: quote
+        start: 1
+        span: 6
+      - 
+        selector: description
+        type: text
+        start: 1
+        span: 8
+      - 
+        selector: mainImages
+        type: image
+        start: 1
+        span: 12
+      - 
+        selector: actionImages
+        type: image
+        start: 1
+        span: 12
+      - 
+        selector: additionalImages
+        type: image
+        start: 1
+        span: 12
+      - 
+        selector: actionVideos
+        type: video
+        start: 1
+        span: 8
+      - 
+        selector: additionalVideos
+        type: video
+        start: 1
+        span: 8
+      - 
+        selector: additionalAudio
+        type: audio
+        start: 1
+        span: 4
+
+    fields: 
+      selector: 
+        label: Type
+        type: select
+        options:
+          meta: Meta
+          quote: Quote
+          description: Description
+          mainImages: Main Images
+          actionImages: Action Images
+          additionalImages: Additional Images
+          actionVideos: Action Videos
+          additionalVideos: Additional Videos
+          additionalAudio: Additional Audio
+      type: 
+        label: Type
+        type: select
+        options:
+          image: image
+          video: video
+          audio: audio
+          meta: meta
+          text: text
+          quote: quote
+      start:
+        label: Start From
+        type: rangeslider
+        min: 1
+        max: 12
+        step: 1
+      span:
+        label: Span
+        type: rangeslider
+        min: 1
+        max: 12
+        step: 1

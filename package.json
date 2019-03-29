@@ -49,13 +49,14 @@
     "fs-extra": "^7.0.0",
     "github-download": "^0.5.0",
     "kool-shell": "^2.1.0",
-    "less": "^3.8.1",
-    "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
     "progress-bar-webpack-plugin": "^1.11.0",
     "resolve-url-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "stylelint-scss": "^3.5.4",
     "tail": "^2.0.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.21.0",
@@ -64,6 +65,13 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2"
+    "@babel/helper-replace-supers": "^7.3.4",
+    "@babel/runtime": "^7.1.2",
+    "array-from": "^2.1.1",
+    "babel-eslint": "^10.0.1",
+    "css-reset-and-normalize": "^2.0.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "reset-css": "^4.0.1",
+    "stylelint": "^9.10.1"
   }
 }

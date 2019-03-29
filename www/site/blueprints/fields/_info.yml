@@ -1,0 +1,89 @@
+type: group
+fields:
+  tab1:
+    label: Info
+    type: tabs
+
+  infoStatic:
+    label: Static
+    type: headline
+    
+  title:
+    label: Title
+    type:  text
+    width: 1/1
+    readonly: true
+
+  infoMeta:
+    label: Meta
+    type: headline
+
+  tags:
+    label: Tags
+    type: tags
+    width: 1/2
+  
+  date:
+    label: Date
+    type: date
+    default: now
+    width: 1/2
+    required: true
+
+  zip:
+    label: ZIP
+    type: text
+    width: 1/4
+    required: true
+
+  degrees:
+    label: Degrees
+    type: text
+    width: 1/4
+    required: true
+
+  weather:
+    label: Emotion
+    type: rangeslider
+    min: 1
+    max: 5
+    default: 1
+    step: 1
+    help: 1 storm, 5 clear
+    width: 1/4
+    required: true
+
+  emotion:
+    label: Emotion
+    type: rangeslider
+    min: 1
+    max: 5
+    default: 1
+    step: 1
+    help: 1 bad, 5 best
+    width: 1/4
+    required: true
+
+  infoAdditionals:
+    label: Additionals
+    type: headline
+
+  subtitle:
+    label: Subtitle
+    type: text
+
+  description:
+    label: Description
+    type: textarea
+
+  quoteText:
+    label: Quote Text
+    type: text
+    width: 1/2
+
+  quoteAuthor:
+    label: Quote Author
+    type: text
+    width: 1/2
+
+  

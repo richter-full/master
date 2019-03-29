@@ -1,0 +1,78 @@
+type: group
+fields:
+  tab2:
+    label: Assets
+    type: tabs
+
+  infoMainImages:
+    label: Main Images
+    type: headline
+    
+  mainImages:
+    extends: __selector
+    label: Main Images
+    width: 1/1
+    types:
+      - image
+
+  infoAdditionalImages:
+    label: Additional Images
+    type: headline
+
+  actionImages:
+    extends: __selector
+    label: Action Images
+    width: 1/2
+    types:
+      - image
+
+  additionalImages:
+    extends: __selector
+    label: Additional Images
+    width: 1/2
+    types:
+      - image
+
+  infoAdditionalVideos:
+    label: Additional Videos
+    type: headline
+
+  actionVideoFiles:
+    extends: __selector
+    label: Action Video File
+    width: 1/2
+    types:
+      - video
+
+  actionVideoLink:
+    label: Action Video Link
+    type: url
+    width: 1/2
+
+  afterVideoFiles:
+    extends: __selector
+    label: After Video File
+    width: 1/2
+    types:
+      - video
+
+  afterVideoLink:
+    label: After Video Link
+    type: url
+    width: 1/2
+
+  infoAdditionalAudio:
+    label: Additional Audio
+    type: headline
+  
+  audioFile:
+    extends: __selector
+    label: Audio File
+    width: 1/2
+    types: 
+      - audio
+
+  audioLink:
+    label: Audio Link
+    type: url
+    width: 1/2
