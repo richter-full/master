@@ -71,4 +71,8 @@ Temporary Items
 # <KirbyWebpack>
 www/kirby
 www/panel
+www/site/fields/tabs
+www/site/fields/gallery
+www/site/fields/rangeslider
+www/site/plugins/selector
 # </KirbyWebpack>
