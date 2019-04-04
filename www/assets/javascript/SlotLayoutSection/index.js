@@ -1,21 +1,26 @@
+import arrayFrom from 'array-from';
 import ImageLoader from '../ImageLoader';
+import VideoLoader from '../VideoLoader';
+import AudioLoader from '../AudioLoader';
+import ContentSlider from '../ContentSlider';
 
 class SlotLayoutSection {
   constructor(options = {}) {
     this.element = options.element;
+    this.article = options.article;
     this.selector = options.selector;
     this.type = options.type;
-    this.start = options.start;
-    this.span = options.span;
+    this.start = options.start || null;
+    this.span = options.span || null;
     this.imageResource = null;
     this.slotLayoutSectionTemplate = '';
-
+    this.slotLayoutSection = '';
   }
 
   init() {
-    console.log('New Layout Section: ',this.type);
     this.checkForType();
-    this.returnLayout();
+
+    return this.slotLayoutSection;
   }
 
   checkForType() {
@@ -29,62 +34,122 @@ class SlotLayoutSection {
       this.renderAudioContent();
     } else if (this.type == 'quote') {
       this.renderQuoteContent();
-    }else {
+    } else {
       this.renderTextContent();
     }
   }
 
   renderImageContent() {
     this.imageResource = this.element.media.images[this.selector];
-    console.log(this.imageResource.length);
-    if (this.imageResource.length > 1) {
-      console.log(Slider);
-      this.initSlider(this.imageResource);
-    } else {
-      console.log('Single');
+
+    this.imageResource.forEach((image) => {
       const imageLoader = new ImageLoader({
-        element: this.imageResource,
+        element: image,
         article: this.element,
       });
-      this.slotLayoutSectionTemplate += imageLoader.renderSrcSet(this.imageResource);
-    }
+      this.slotLayoutSectionTemplate += imageLoader.renderSrcSet(image);
+    });
+
+    this.returnLayout();
   }
 
   initSlider(resource) {
     const imageSlider = new ContentSlider({
-      element: resource,
+      element: this.element,
+      resource: resource,
     });
     this.slotLayoutSectionTemplate += imageSlider.init();
+
   }
 
   renderVideoContent() {
     this.videos = this.element.media.videos;
-    console.log(this.videos);
+    if (this.videos[this.selector]) {
+      this.videos[this.selector].forEach((videoSource) => {
+        let template = '';
+
+        const videoLoader = new VideoLoader ({
+          element: videoSource,
+          article: this.article,
+          key: this.selector,
+          // source: source
+        });
+
+        template += videoLoader.init();
+        this.slotLayoutSectionTemplate += template;
+      });
+      this.returnLayout();
+    }
+
+
   }
 
   renderMetaContent() {
     this.meta = this.element.info.meta;
-    console.log(this.meta);
+
+    let tagListTemplate = '<ul class="content-slot__tags">';
+    arrayFrom(this.meta.tags.split(',')).forEach((tag) => {
+      tagListTemplate += `<li class="content-slot__tag-pill" data-value="${tag}">${tag}</li>`;
+    });
+    tagListTemplate += '</ul>';
+
+    this.slotLayoutSectionTemplate += tagListTemplate;
+    this.returnLayout();
   }
 
   renderAudioContent() {
     this.audios = this.element.media.audios;
-    console.log(this.audios);
+
+    Object.entries(this.audios).forEach((audio) => {
+      const [key, source] = audio;
+      const audioLoader = new AudioLoader ({
+        element: audio,
+        article: this.article,
+        key: key,
+        source: source,
+      });
+
+      this.slotLayoutSectionTemplate += audioLoader.init();
+    });
+
+    this.returnLayout();
   }
 
 
   renderQuoteContent() {
-    this.quote = this.element.info.quote
-    console.log(this.quote);
+    this.quote = this.element.info.quote;
+    const quoteTemplate = `
+      <div class="text">
+        <blockquote class="quote">${this.quote.text}</blockquote>
+        <cite class="cite">${this.quote.author}</cite>
+      </div>
+    `;
+
+    this.slotLayoutSectionTemplate += quoteTemplate;
+    this.returnLayout();
   }
 
   renderTextContent() {
     this.text = this.element.info.additionals;
-    console.log(this.text);
+
+    const textTemplate = `
+      <div class="text">
+        <h2 class="h2 subtitle">${this.text.subtitle}</h2>
+        ${this.text.description}
+      </div>
+    `;
+
+    this.slotLayoutSectionTemplate += textTemplate;
+    this.returnLayout();
   }
 
   returnLayout() {
-    return this.slotLayoutSectionTemplate;
+    this.slotLayoutSection = `<section class="content-slot__section__${this.selector} grid-start--${this.start} grid-span--${this.span}">${this.selector}`;
+
+    this.slotLayoutSection += this.slotLayoutSectionTemplate;
+    this.slotLayoutSection += '</section>';
+
+    return this.slotLayoutSection;
   }
 }
 

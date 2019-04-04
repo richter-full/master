@@ -67,11 +67,20 @@
   "dependencies": {
     "@babel/helper-replace-supers": "^7.3.4",
     "@babel/runtime": "^7.1.2",
+    "animated-scroll-to": "^1.2.2",
     "array-from": "^2.1.1",
     "babel-eslint": "^10.0.1",
+    "canvas": "^2.4.1",
+    "colorify.js": "^1.0.3",
     "css-reset-and-normalize": "^2.0.1",
+    "custom-event": "^1.0.1",
     "eslint-config-airbnb": "^17.1.0",
+    "node-vibrant": "^3.2.0-alpha",
     "reset-css": "^4.0.1",
-    "stylelint": "^9.10.1"
+    "rgbaster": "^2.1.1",
+    "scroll-to-element": "^2.0.3",
+    "stylelint": "^9.10.1",
+    "tiny-slider": "^2.9.1",
+    "url-search-params-polyfill": "^5.1.0"
   }
 }

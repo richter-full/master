@@ -134,17 +134,27 @@ function FillArrayFile($root, $filenames) {
   foreach($files as $file) {
     if($file->type() == 'image') {
       $filesArray[] = array(
-        'type'  => $file->type(),
-        'extension' => $file->extension(),
-        'hash' => $file->hash(),
+        'type'  => (string)$file->type(),
+        'extension' => (string)$file->extension(),
+        'hash' => (string)$file->hash(),
         'initialWidth' => $file->width(),
         'initialHeight' => $file->height(),
       );
+    } else if($file->type() == 'video'){
+      $filesArray[] = array(
+        'type'  => (string)$file->type(),
+        'extension' => (string)$file->extension(),
+        'hash' => (string)$file->hash(),
+        'poster' => array(
+          'hash' => (string)$root->files()->find($file->poster())->hash(),
+          'extension' => (string)$root->files()->find($file->poster())->extension(),
+        )
+      );
     } else {
       $filesArray[] = array(
-        'type'  => $file->type(),
-        'extension' => $file->extension(),
-        'hash' => $file->hash(),
+        'type'  => (string)$file->type(),
+        'extension' => (string)$file->extension(),
+        'hash' => (string)$file->hash(),
       );
     }
   }

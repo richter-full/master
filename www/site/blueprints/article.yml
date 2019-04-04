@@ -2,6 +2,10 @@ title: Article
 pages: false
 num: date
 files: true
+  fields: 
+    poster: 
+      label: Poster
+      type: selector
 fields:
   info: _info
 

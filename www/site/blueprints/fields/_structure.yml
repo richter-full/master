@@ -48,12 +48,22 @@ fields:
         start: 1
         span: 12
       - 
-        selector: actionVideos
+        selector: actionVideoFiles
         type: video
         start: 1
         span: 8
       - 
-        selector: additionalVideos
+        selector: actionVideoLink
+        type: video
+        start: 1
+        span: 8
+      - 
+        selector: afterVideoFiles
+        type: video
+        start: 1
+        span: 8
+      - 
+        selector: afterVideoLink
         type: video
         start: 1
         span: 8
@@ -74,8 +84,10 @@ fields:
           mainImages: Main Images
           actionImages: Action Images
           additionalImages: Additional Images
-          actionVideos: Action Videos
-          additionalVideos: Additional Videos
+          actionVideoFiles: Action Video Files
+          actionVideoLink: Action Video Link
+          afterVideoFiles: After Video Files
+          afterVideoLink: After Video Link
           additionalAudio: Additional Audio
       type: 
         label: Type

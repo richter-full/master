@@ -7,4 +7,4 @@
   <title><?php echo $site->title()->html() ?> | <?php echo $page->title()->html() ?></title>
   <?php echo liveCSS('assets/builds/bundle.css') ?>
 </head>
-<body>
+<body data-module="Generals">

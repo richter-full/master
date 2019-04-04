@@ -1,14 +1,5 @@
 import arrayFrom from 'array-from';
 
-window.config = {
-  breakpoints: {
-    small: 500,
-    medium: 800,
-    large: 1200,
-    xlarge: 2000,
-  }
-};
-
 const BREAKPOINTS = window.config.breakpoints;
 
 class ImageLoader {
@@ -69,7 +60,7 @@ class ImageLoader {
       <img src="${this.returnImgPath(name, 1000, 1000, src.extension, 0)}" />
     `;
     srcSetTemplate +=  '</picture>';
-
+    // console.log('SRCSET TEMPLATE: ', srcSetTemplate);
     return srcSetTemplate;
   }
 

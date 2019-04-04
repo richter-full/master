@@ -1,0 +1,55 @@
+.grid {
+  display: grid;
+  grid-template-columns: [line1] 1fr [line2] 1fr [line3] 1fr [line4] 1fr [line5] 1fr [line6] 1fr [line7] 1fr [line8] 1fr [line9] 1fr [line10] 1fr [line11] 1fr [line12] 1fr [line13];
+  // grid-template-rows: <track-size> ... | <line-name> <track-size> ...;
+}
+
+.grid-span {
+  &--1 {
+    grid-column-end: span 1;
+  }
+
+  &--2 {
+    grid-column-end: span 2;
+  }
+
+  &--3 {
+    grid-column-end: span 3;
+  }
+
+  &--4 {
+    grid-column-end: span 4;
+  }
+
+  &--5 {
+    grid-column-end: span 5;
+  }
+
+  &--6 {
+    grid-column-end: span 6;
+  }
+
+  &--7 {
+    grid-column-end: span 7;
+  }
+
+  &--8 {
+    grid-column-end: span 8;
+  }
+
+  &--9 {
+    grid-column-end: span 9;
+  }
+
+  &--10 {
+    grid-column-end: span 10;
+  }
+
+  &--11 {
+    grid-column-end: span 11;
+  }
+
+  &--12 {
+    grid-column-end: span 12;
+  }
+}

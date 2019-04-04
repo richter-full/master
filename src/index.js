@@ -1,4 +1,5 @@
 import arrayFrom from 'array-from';
+import Generals from '../www/assets/javascript/Generals'
 import AsideText from '../www/assets/javascript/AsideText'
 import ContentOverview from '../www/assets/javascript/ContentOverview'
 import ArticleRenderer from '../www/assets/javascript/ArticleRenderer'
@@ -10,6 +11,7 @@ const defineClassesMaster = () => ({
   AsideText,
   ContentOverview,
   ArticleRenderer,
+  Generals,
 });
 
 // ToDo: put classes to their subproject
@@ -23,6 +25,7 @@ const defineClassesAdditional = () => (window.classesAdditional || {
 
 // Global storage for optional additional classes/objects/modules
 window.sharedObjects = window.sharedObjects || {};
+
 
 // GLOBAL INIT
 /*

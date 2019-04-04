@@ -1,6 +1,29 @@
-import arrayFrom from 'array-from';
+import 'url-search-params-polyfill';
+import scrollToElement from 'scroll-to-element';
 import ContentSlot from '../ContentSlot';
 import ImageLoader from '../ImageLoader';
+import getEventHandlerResize from '../ResizeHandler';
+
+
+const BREAKPOINT_KEYS = window.config.breakpointKeys;
+const CONFIG = window.config;
+const CONFIG_SCROLL = window.config.generals.scrollConfig;
+
+
+const spanClass = (viewport) => {
+  switch (viewport) {
+    case BREAKPOINT_KEYS.xlarge:
+      return 3;
+    case BREAKPOINT_KEYS.large:
+      return 3;
+    case BREAKPOINT_KEYS.medium:
+      return 4;
+    case BREAKPOINT_KEYS.small:
+      return 6;
+    default:
+      return 6;
+  }
+};
 
 class ArticleRenderer {
   constructor(options = {}) {
@@ -9,10 +32,10 @@ class ArticleRenderer {
     this.info = this.element.info;
     this.media = this.element.media;
     this.id = this.element.info.static.hash;
+    // this.span = this.spanClass(window.innerWidth);
   }
 
   init() {
-    // console.log('Article Renderer Initialized with: ', this.element, this.info, this.media, this.id);
     this.buildTemplate();
   }
 
@@ -21,7 +44,7 @@ class ArticleRenderer {
 
     const template = `
       <article
-        class="content-overview__item"
+        class="content-overview__item grid-span--${spanClass(getEventHandlerResize().getCurrentViewport())}"
         id="${this.id}"
         data-id="${this.id}"
       >
@@ -30,6 +53,18 @@ class ArticleRenderer {
       </article>
     `;
     this.renderInsideTarget(template, this.target);
+    window.addEventListener(CONFIG.events.resize, () => this.setLayoutClasses());
+
+  }
+
+  setLayoutClasses() {
+    const element = document.getElementById(this.id);
+    element.classList.forEach((item) => {
+      if (item.startsWith('grid-span--')) {
+        element.classList.remove(item);
+        element.classList.add(`grid-span--${spanClass(getEventHandlerResize().getCurrentViewport())}`);
+      }
+    });
   }
 
   returnThumbs(imageSources) {
@@ -55,8 +90,11 @@ class ArticleRenderer {
 
   initActions() {
     document.getElementById(this.id).addEventListener('click', () => {
+      history.pushState({}, null, `?id=${this.id}`);
+      scrollToElement(document.getElementById(this.id), CONFIG_SCROLL);
       const contentSlot = new ContentSlot({
         element: this.element,
+        article: this.element,
       });
       contentSlot.init();
     });

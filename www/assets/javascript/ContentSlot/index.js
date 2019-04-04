@@ -1,26 +1,74 @@
+import scrollToElement from 'scroll-to-element';
 import arrayFrom from 'array-from';
-import ImageLoader from '../ImageLoader';
 import SlotLayoutSection from '../SlotLayoutSection';
+import getEventHandlerResize from '../ResizeHandler';
 
-const insertPosition = () => {
-  return 1;
+
+
+const BREAKPOINT_KEYS = window.config.breakpointKeys;
+const CONFIG_SCROLL = window.config.generals.scrollConfig;
+
+const insertPosition = (viewport, currentElement) => {
+  const overviewItems = document.querySelectorAll('article.content-overview__item');
+  const itemPosition = arrayFrom(overviewItems).findIndex((element) => {
+    return element.id === currentElement.info.static.hash;
+  });
+
+  let itemsPerRow = null;
+  switch (viewport) {
+    case BREAKPOINT_KEYS.xlarge:
+      itemsPerRow = 4;
+      break;
+    case BREAKPOINT_KEYS.large:
+      itemsPerRow = 4;
+      break;
+    case BREAKPOINT_KEYS.medium:
+      itemsPerRow = 3;
+      break;
+    case BREAKPOINT_KEYS.small:
+      itemsPerRow = 2;
+      break;
+  }
+
+  const modulo = () => {
+    if(itemPosition !== 0) {
+      return itemPosition % itemsPerRow;
+    } else {
+      return 1;
+    }
+  }
+
+  const insertPosition = () => {
+    if(itemPosition !== 0) {
+      return itemPosition - modulo() + itemsPerRow;
+    } else {
+      return itemPosition - modulo() + itemsPerRow + 1;
+    }
+  };
+
+  return insertPosition();
 };
 
 class ContentSlot {
   constructor(options = {}) {
     this.element = options.element;
-    this.insertPosition = insertPosition();
+    this.article = options.article;
+
+    this.insertPosition = insertPosition(getEventHandlerResize().getCurrentViewport(), this.element);
     this.oldSlot = document.querySelector('.content-slot__wrapper') || null;
     this.structure = this.element['structure'] || null;
+    this.slotWrapper = null;
+    this.id = this.element.info.static.hash;
   }
 
   init() {
-    console.log('New Content Slot with: ', this.element);
     if(this.oldSlot !== null) {
       this.removeOldSlot();
     }
+
     this.generateSlot();
     this.generateSlotLayout();
+    this.setDominantColor();
   }
 
   removeOldSlot() {
@@ -32,92 +80,52 @@ class ContentSlot {
     const slotWrapper = document.createElement('article');
 
     slotWrapper.classList.add('content-slot__wrapper');
-    slotWrapper.style.padding = '100px';
-    slotWrapper.style.background = 'cyan';
+    slotWrapper.classList.add('grid-span--12');
+    // slotWrapper.style.padding = '100px';
+    // slotWrapper.style.background = 'cyan';
     const overviewItems = document.querySelectorAll('article.content-overview__item');
 
-    document.querySelector('.content-overview').insertBefore(slotWrapper, overviewItems[this.insertPosition]);
+    document.querySelector('.mod--content-overview').insertBefore(slotWrapper, overviewItems[this.insertPosition]);
 
-    this.insertContent(slotWrapper);
+    this.slotWrapper = slotWrapper;
+
     slotWrapper.addEventListener('click', () => {
       slotWrapper.parentNode.removeChild(slotWrapper);
+      scrollToElement(document.getElementById(this.id), CONFIG_SCROLL);
     });
   }
 
   generateSlotLayout() {
-    console.log(this.structure, this.element);
-    if (this.structure || null) {
+    if (this.structure.length >= 1) {
+      let slotLayoutElements = '';
+
       this.structure.forEach((structureEntry) => {
-        console.log(structureEntry.type);
-        const slotLayout = new SlotLayoutSection ({
+        const slotLayoutSection = new SlotLayoutSection ({
           element: this.element,
+          article: this.article,
           selector: structureEntry.selector,
           type: structureEntry.type,
           start: structureEntry.start,
           span: structureEntry.span,
         })
-        slotLayout.init();
+        slotLayoutElements += slotLayoutSection.init();
       });
+      this.insertContent(slotLayoutElements);
     } else {
       console.log('No Structure to Render...');
     }
   }
 
-  insertContent(slotWrapper) {
-    const slotContent = document.createElement('section');
+  insertContent(elements) {
+    const slotContent = document.createElement('div');
     slotContent.classList.add('content-slot__content');
+    slotContent.innerHTML = elements;
 
-    // All Informations:
-    this.info = this.element.info;
-    const articleInfo = document.createElement('section');
-    articleInfo.classList.add('content-slot__content__info');
-    const articleInfoTemplate = `
-      <div class="info__title">
-        <h1>${this.info.static.title}</h1>
-      </div>
-      <div class="info__meta">
-        ${this.returnTags()}
-      </div>
-    `;
-    articleInfo.innerHTML += articleInfoTemplate;
-
-    const articleMainImages = document.createElement('section');
-    articleMainImages.classList.add('content-slot__content__main-images');
-    if (this.element.media.images.mainImages) {
-      articleMainImages.innerHTML += this.insertImages(this.element.media.images.mainImages);
-    };
-
-    slotContent.appendChild(articleInfo);
-    slotContent.appendChild(articleMainImages);
-
-    slotWrapper.appendChild(slotContent);
+    this.slotWrapper.appendChild(slotContent);
   }
 
-  returnTags() {
-    const tags = this.element.info.meta.tags.split(',');
-    let tagsTemplate = '<ul>';
-    tags.forEach((tag) => {
-      const tagTemplate = `<li class="info__tag-pill">${tag}</li>`
-      tagsTemplate += tagTemplate;
-    });
-    tagsTemplate += '</ul>';
+  setDominantColor() {
 
-    return tagsTemplate;
-  }
-
-  insertImages(resources) {
-    let resourceTemplate = '';
-    resources.forEach((resource) => {
-      // console.log('Resource', resource);
-      const imageLoader = new ImageLoader({
-        element: resource,
-        article: this.element,
-      })
-      resourceTemplate += imageLoader.renderSrcSet(resource);
-
-    });
-
-    return resourceTemplate;
   }
 }
 
