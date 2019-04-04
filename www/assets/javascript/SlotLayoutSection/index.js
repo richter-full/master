@@ -144,7 +144,7 @@ class SlotLayoutSection {
   }
 
   returnLayout() {
-    this.slotLayoutSection = `<section class="content-slot__section__${this.selector} grid-start--${this.start} grid-span--${this.span}">${this.selector}`;
+    this.slotLayoutSection = `<section class="content-slot__section__${this.selector} grid-start--${this.start} grid-column-span--${this.span}">${this.selector}`;
 
     this.slotLayoutSection += this.slotLayoutSectionTemplate;
     this.slotLayoutSection += '</section>';

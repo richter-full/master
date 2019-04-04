@@ -1,3 +1,1 @@
-<aside class="aside-text" data-module="AsideText">
-  Aside Text
-</aside>
+<aside class="mod--aside" data-module="AsideText"></aside>

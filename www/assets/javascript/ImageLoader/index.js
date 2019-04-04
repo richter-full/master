@@ -36,7 +36,7 @@ class ImageLoader {
   renderThumbTemplate(src) {
     const template = `
       <figure class="content-overview__item__thumb">
-        <img src="${this.returnImgPath(this.article.info.static.title+'/'+this.article.info.static.hash+'-'+src.hash, undefined, undefined, src.extension, undefined)}" />
+        <img src="${this.returnImgPath(this.article.info.static.title+'/'+this.article.info.static.hash+'-'+src.hash, 400, 400, src.extension, 40000)}" />
       </figure>
     `
     return template;

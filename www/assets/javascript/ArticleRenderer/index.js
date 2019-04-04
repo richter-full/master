@@ -3,6 +3,7 @@ import scrollToElement from 'scroll-to-element';
 import ContentSlot from '../ContentSlot';
 import ImageLoader from '../ImageLoader';
 import getEventHandlerResize from '../ResizeHandler';
+import AsideText from '../AsideText';
 
 
 const BREAKPOINT_KEYS = window.config.breakpointKeys;
@@ -44,7 +45,7 @@ class ArticleRenderer {
 
     const template = `
       <article
-        class="content-overview__item grid-span--${spanClass(getEventHandlerResize().getCurrentViewport())}"
+        class="content-overview__item grid-column-span--${spanClass(getEventHandlerResize().getCurrentViewport())} grid-row-span--2"
         id="${this.id}"
         data-id="${this.id}"
       >
@@ -60,9 +61,9 @@ class ArticleRenderer {
   setLayoutClasses() {
     const element = document.getElementById(this.id);
     element.classList.forEach((item) => {
-      if (item.startsWith('grid-span--')) {
+      if (item.startsWith('grid-column-span--')) {
         element.classList.remove(item);
-        element.classList.add(`grid-span--${spanClass(getEventHandlerResize().getCurrentViewport())}`);
+        element.classList.add(`grid-column-span--${spanClass(getEventHandlerResize().getCurrentViewport())}`);
       }
     });
   }
@@ -92,6 +93,13 @@ class ArticleRenderer {
     document.getElementById(this.id).addEventListener('click', () => {
       history.pushState({}, null, `?id=${this.id}`);
       scrollToElement(document.getElementById(this.id), CONFIG_SCROLL);
+      console.log(scrollToElement(document.getElementById(this.id), CONFIG_SCROLL));
+      const asideText = new AsideText({
+        element: document.querySelector('aside'),
+        text: this.element.info.static.title,
+      });
+      asideText.init();
+
       const contentSlot = new ContentSlot({
         element: this.element,
         article: this.element,

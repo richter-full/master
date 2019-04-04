@@ -75,6 +75,7 @@
     "css-reset-and-normalize": "^2.0.1",
     "custom-event": "^1.0.1",
     "eslint-config-airbnb": "^17.1.0",
+    "marquee3000": "^1.0.9",
     "node-vibrant": "^3.2.0-alpha",
     "reset-css": "^4.0.1",
     "rgbaster": "^2.1.1",

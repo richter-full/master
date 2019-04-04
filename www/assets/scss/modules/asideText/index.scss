@@ -1,0 +1,37 @@
+.mod--aside {
+  width: 5vw;
+  position: fixed;
+  background: $colors--black;
+  color: $colors--white;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  .aside-text {
+    position: absolute;
+    height: 80px;
+    width: 400vh;
+    bottom: 0;
+    left: 5vw;
+    transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: bottom left;
+    font-size: 5vw;
+    line-height: 1;
+    animation: marquee 16s linear 1s infinite;
+    color: $colors--white;
+    -webkit-text-fill-color: $colors--black; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $colors--white;
+  }
+
+  @keyframes marquee {
+    0% {
+      text-indent: 0%;
+    }
+
+    100% {
+      text-indent: 100%;
+    }
+  }
+}
+

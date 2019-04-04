@@ -1,7 +1,11 @@
 @import 'reset-css';
 
-/* Static General Styling */
+/* Static General Styling and Variables */
+@import '../www/assets/scss/generals/variables';
+@import '../www/assets/scss/generals/layout';
 @import '../www/assets/scss/generals/grid';
+@import '../www/assets/scss/generals/images';
+
 
 /* Modules */
 @import '../www/assets/scss/generals/modules'

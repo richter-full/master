@@ -47,7 +47,6 @@
   }
 </script>
 <main class="main" role="content">
-  Main Content
   <section class="mod--content-overview grid" data-module="ContentOverview">
   </section>
 </main>

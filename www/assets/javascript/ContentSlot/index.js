@@ -80,9 +80,11 @@ class ContentSlot {
     const slotWrapper = document.createElement('article');
 
     slotWrapper.classList.add('content-slot__wrapper');
-    slotWrapper.classList.add('grid-span--12');
+    slotWrapper.classList.add('grid-column-span--12');
+    slotWrapper.classList.add('grid-row-span--6');
     // slotWrapper.style.padding = '100px';
-    // slotWrapper.style.background = 'cyan';
+    slotWrapper.style.background = 'grey';
+    slotWrapper.style.overflow = 'auto';
     const overviewItems = document.querySelectorAll('article.content-overview__item');
 
     document.querySelector('.mod--content-overview').insertBefore(slotWrapper, overviewItems[this.insertPosition]);
@@ -91,6 +93,8 @@ class ContentSlot {
 
     slotWrapper.addEventListener('click', () => {
       slotWrapper.parentNode.removeChild(slotWrapper);
+      console.log('Closing');
+      console.log(scrollToElement(document.getElementById(this.id), CONFIG_SCROLL));
       scrollToElement(document.getElementById(this.id), CONFIG_SCROLL);
     });
   }

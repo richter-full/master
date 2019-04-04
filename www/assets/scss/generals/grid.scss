@@ -1,10 +1,14 @@
+$grid-100: 95vw;
+
 .grid {
   display: grid;
-  grid-template-columns: [line1] 1fr [line2] 1fr [line3] 1fr [line4] 1fr [line5] 1fr [line6] 1fr [line7] 1fr [line8] 1fr [line9] 1fr [line10] 1fr [line11] 1fr [line12] 1fr [line13];
-  // grid-template-rows: <track-size> ... | <line-name> <track-size> ...;
+  grid-template-columns: [line1] calc(#{$grid-100} / 12) [line2] calc(#{$grid-100} / 12) [line3] calc(#{$grid-100} / 12) [line4] calc(#{$grid-100} / 12) [line5] calc(#{$grid-100} / 12) [line6] calc(#{$grid-100} / 12) [line7] calc(#{$grid-100} / 12) [line8] calc(#{$grid-100} / 12) [line9] calc(#{$grid-100} / 12) [line10] calc(#{$grid-100} / 12) [line11] calc(#{$grid-100} / 12) [line12] calc(#{$grid-100} / 12) [line13];
+  grid-auto-rows: calc(#{$grid-100} / 12);
+  // grid-column-gap: 20px;
+  // grid-row-gap: 20px;
 }
 
-.grid-span {
+.grid-column-span {
   &--1 {
     grid-column-end: span 1;
   }
@@ -51,5 +55,55 @@
 
   &--12 {
     grid-column-end: span 12;
+  }
+}
+
+.grid-row-span {
+  &--1 {
+    grid-row-end: span 1;
+  }
+
+  &--2 {
+    grid-row-end: span 2;
+  }
+
+  &--3 {
+    grid-row-end: span 3;
+  }
+
+  &--4 {
+    grid-row-end: span 4;
+  }
+
+  &--5 {
+    grid-row-end: span 5;
+  }
+
+  &--6 {
+    grid-row-end: span 6;
+  }
+
+  &--7 {
+    grid-row-end: span 7;
+  }
+
+  &--8 {
+    grid-row-end: span 8;
+  }
+
+  &--9 {
+    grid-row-end: span 9;
+  }
+
+  &--10 {
+    grid-row-end: span 10;
+  }
+
+  &--11 {
+    grid-row-end: span 11;
+  }
+
+  &--12 {
+    grid-row-end: span 12;
   }
 }
