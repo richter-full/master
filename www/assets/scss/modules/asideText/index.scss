@@ -1,24 +1,28 @@
 .mod--aside {
-  width: 5vw;
+  width: 100vh;
+  height: 5vw;
   position: fixed;
   background: $colors--black;
   color: $colors--white;
-  top: 0;
-  left: 0;
+  // top: 0;
+  left: 5vw;
   bottom: 0;
+  overflow: hidden;
+  transform: rotate(-90deg);
+  transform-origin: bottom left;
 
   .aside-text {
     position: absolute;
     height: 80px;
     width: 400vh;
-    bottom: 0;
-    left: 5vw;
-    transform: rotate(-90deg) translateX(-100vh);
-    transform-origin: bottom left;
-    font-size: 5vw;
+    // bottom: 50%;
+    left: -80%;
+    font: $default-sans-serif;
+    // transform: translateX(-50%);
+    font-size: 4.8vw;
     line-height: 1;
     animation: marquee 16s linear 1s infinite;
-    color: $colors--white;
+    color: $colors--black;
     -webkit-text-fill-color: $colors--black; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: $colors--white;

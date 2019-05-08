@@ -16,7 +16,7 @@ of the system, please check out http://getkirby.com/docs/advanced/options
 
 c::set('debug', true);
 
-kirby()->hook(['panel.page.create', 'panel.page.update', 'panel.page.sort'], function($page) {
+kirby()->hook(['panel.page.update', 'panel.page.sort'], function($page) {
   if($page->intendedTemplate() == 'article') {
     $letterArray = [
       'X',
@@ -90,33 +90,35 @@ kirby()->hook(['panel.page.create', 'panel.page.update', 'panel.page.sort'], fun
 });
 
 kirby()->hook('panel.page.update', function($page) {
-  // importing the necessary Cloudinary files
-  require '../../vendor/cloudinary/cloudinary_php/src/Cloudinary.php';
-  require '../../vendor/cloudinary/cloudinary_php/src/Uploader.php';
-  require '../../vendor/cloudinary/cloudinary_php/src/Helpers.php';
-  require '../../vendor/cloudinary/cloudinary_php/src/Api.php';
-  require '../../vendor/cloudinary/cloudinary_php/src/Error.php';
+  if ($page->uploadToggle()->value() === "true") {
+    // importing the necessary Cloudinary files
+    require '../../vendor/cloudinary/cloudinary_php/src/Cloudinary.php';
+    require '../../vendor/cloudinary/cloudinary_php/src/Uploader.php';
+    require '../../vendor/cloudinary/cloudinary_php/src/Helpers.php';
+    require '../../vendor/cloudinary/cloudinary_php/src/Api.php';
+    require '../../vendor/cloudinary/cloudinary_php/src/Error.php';
 
-  \Cloudinary::config(array(
-    "cloud_name" => "richterskala",
-    "api_key" => "741172134745961",
-    "api_secret" => "1duseF1b_P38_f_XFL7MMDPnpag"
-  ));
+    \Cloudinary::config(array(
+      "cloud_name" => "richterskala",
+      "api_key" => "741172134745961",
+      "api_secret" => "1duseF1b_P38_f_XFL7MMDPnpag"
+    ));
 
-  try {
-    foreach($page->files() as $file) {
-      if($file->type() == 'video') {
-        \Cloudinary\Uploader::upload_large($file->root(), 
-        array("folder" => $page->title(), "public_id" => $page->hash()."-".$file->hash(), "overwrite" => TRUE));
-      } else if ($file->type() == 'image') {
-        \Cloudinary\Uploader::upload($file->root(), 
-        array("folder" => $page->title(), "public_id" => $page->hash()."-".$file->hash(), "overwrite" => TRUE));
-      } else if ($file->type() == 'audio') {
-        \Cloudinary\Uploader::upload_large($file->root(), 
-        array("folder" => $page->title(), "public_id" => $page->hash()."-".$file->hash(), "overwrite" => TRUE));
+    try {
+      foreach($page->files() as $file) {
+        if($file->type() == 'video') {
+          \Cloudinary\Uploader::upload_large($file->root(), 
+          array("folder" => $page->title(), "public_id" => $page->hash()."-".$file->hash(), "overwrite" => TRUE));
+        } else if ($file->type() == 'image') {
+          \Cloudinary\Uploader::upload($file->root(), 
+          array("folder" => $page->title(), "public_id" => $page->hash()."-".$file->hash(), "overwrite" => TRUE));
+        } else if ($file->type() == 'audio') {
+          \Cloudinary\Uploader::upload_large($file->root(), 
+          array("folder" => $page->title(), "public_id" => $page->hash()."-".$file->hash(), "overwrite" => TRUE));
+        }
       }
+    } catch(Exception $e) {
+      echo $e->getMessage();
     }
-  } catch(Exception $e) {
-    echo $e->getMessage();
   }
 });

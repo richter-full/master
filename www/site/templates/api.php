@@ -2,11 +2,16 @@
 header('Content-type: application/json; charset=utf-8');
 
 //this is the magic command which grabs all data from pages. If You wanna grab specific page articles, look at the base example mentioned above
-$data = $site->index()->not('error', 'home', 'api', 'articles');
+$data = $site->index()->not('error', 'home', 'api', 'articles')->visible();
 
 $json = array();
 $json['articles'] = array();
-$json['config'] = array();
+$json['config'] = array(
+  'site' => array(
+    'title' => (string)$site->title(),
+    'description' => (string)$site->description(),
+  )
+);
 $json['globals'] = array();
 
 // $json['categories'] = array();
@@ -23,15 +28,24 @@ foreach($data as $dataEntry) {
       $media['images'] = array();
 
       if($dataEntry->mainImages()->isNotEmpty()) {
-        $media['images']['mainImages'] = FillArrayFile($dataEntry, $dataEntry->mainImages()->split(','));
+        $media['images']['mainImages']['entries'] = FillArrayFile($dataEntry, $dataEntry->mainImages()->split(','));
+        if($dataEntry->mainImagesOptions()->isNotEmpty()) {
+          $media['images']['mainImages']['options'] = array('slider' => $dataEntry->mainImagesOptions()->value());
+        }
       }
 
       if($dataEntry->actionImages()->isNotEmpty()) {
-        $media['images']['actionImages'] = FillArrayFile($dataEntry, $dataEntry->actionImages()->split(','));
+        $media['images']['actionImages']['entries'] = FillArrayFile($dataEntry, $dataEntry->actionImages()->split(','));
+        if($dataEntry->actionImagesOptions()->isNotEmpty()) {
+          $media['images']['actionImages']['options'] = array('slider' => $dataEntry->actionImagesOptions()->value());
+        }
       }
 
       if($dataEntry->additionalImages()->isNotEmpty()) {
-        $media['images']['additionalImages'] = FillArrayFile($dataEntry, $dataEntry->additionalImages()->split(','));
+        $media['images']['additionalImages']['entries'] = FillArrayFile($dataEntry, $dataEntry->additionalImages()->split(','));
+        if($dataEntry->additionalImagesOptions()->isNotEmpty()) {
+          $media['images']['additionalImages']['options'] = array('slider' => $dataEntry->additionalImagesOptions()->value());
+        }
       }
     }
 
@@ -139,6 +153,7 @@ function FillArrayFile($root, $filenames) {
         'hash' => (string)$file->hash(),
         'initialWidth' => $file->width(),
         'initialHeight' => $file->height(),
+        'caption' => (string)$file->alt(),
       );
     } else if($file->type() == 'video'){
       $filesArray[] = array(
@@ -148,13 +163,15 @@ function FillArrayFile($root, $filenames) {
         'poster' => array(
           'hash' => (string)$root->files()->find($file->poster())->hash(),
           'extension' => (string)$root->files()->find($file->poster())->extension(),
-        )
+        ),
+        'caption' => (string)$file->alt(),
       );
     } else {
       $filesArray[] = array(
         'type'  => (string)$file->type(),
         'extension' => (string)$file->extension(),
         'hash' => (string)$file->hash(),
+        'caption' => (string)$file->alt(),
       );
     }
   }

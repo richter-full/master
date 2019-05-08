@@ -1,1 +1,9 @@
-Title: Site Title
+Title: Richterskala
+
+----
+
+Text: Das wird mein Beschreibungstext für meine Seite.
+
+----
+
+Description: Das ist der Beschreibungstext für meine Seite

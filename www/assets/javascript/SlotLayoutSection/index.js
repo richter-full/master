@@ -2,12 +2,14 @@ import arrayFrom from 'array-from';
 import ImageLoader from '../ImageLoader';
 import VideoLoader from '../VideoLoader';
 import AudioLoader from '../AudioLoader';
-import ContentSlider from '../ContentSlider';
+import TagPill from '../TagPill';
+// import ContentSlider from '../ContentSlider';
 
 class SlotLayoutSection {
   constructor(options = {}) {
     this.element = options.element;
     this.article = options.article;
+    this.index = options.index + 1;
     this.selector = options.selector;
     this.type = options.type;
     this.start = options.start || null;
@@ -15,24 +17,27 @@ class SlotLayoutSection {
     this.imageResource = null;
     this.slotLayoutSectionTemplate = '';
     this.slotLayoutSection = '';
+    this.isSlider = this.element;
   }
 
   init() {
+
+    console.log('SlotLayoutSection: ', this.element, this.index);
     this.checkForType();
 
     return this.slotLayoutSection;
   }
 
   checkForType() {
-    if (this.type == 'image') {
+    if (this.type === 'image') {
       this.renderImageContent();
-    } else if (this.type == 'video') {
+    } else if (this.type === 'video') {
       this.renderVideoContent();
-    } else if (this.type == 'meta') {
+    } else if (this.type === 'meta') {
       this.renderMetaContent();
-    } else if (this.type == 'audio') {
+    } else if (this.type === 'audio') {
       this.renderAudioContent();
-    } else if (this.type == 'quote') {
+    } else if (this.type === 'quote') {
       this.renderQuoteContent();
     } else {
       this.renderTextContent();
@@ -40,38 +45,36 @@ class SlotLayoutSection {
   }
 
   renderImageContent() {
-    this.imageResource = this.element.media.images[this.selector];
+    this.imageResource = this.element.media.images[this.selector].entries || null;
 
-    this.imageResource.forEach((image) => {
+    this.imageResource.forEach((image, i) => {
       const imageLoader = new ImageLoader({
         element: image,
         article: this.element,
+        slotIndex: this.index,
+        i,
       });
       this.slotLayoutSectionTemplate += imageLoader.renderSrcSet(image);
     });
-
+    // console.log('Image Resource: ', this.imageResource, 'Slider Toggle: ', this.element.media.images[this.selector].options.slider);
+    if (this.element.media.images[this.selector].options.slider === 'true') {
+      this.isSlider = true;
+    }
     this.returnLayout();
-  }
-
-  initSlider(resource) {
-    const imageSlider = new ContentSlider({
-      element: this.element,
-      resource: resource,
-    });
-    this.slotLayoutSectionTemplate += imageSlider.init();
-
   }
 
   renderVideoContent() {
     this.videos = this.element.media.videos;
     if (this.videos[this.selector]) {
-      this.videos[this.selector].forEach((videoSource) => {
+      this.videos[this.selector].forEach((videoSource, i) => {
         let template = '';
 
-        const videoLoader = new VideoLoader ({
+        const videoLoader = new VideoLoader({
           element: videoSource,
           article: this.article,
           key: this.selector,
+          slotIndex: this.index,
+          i,
           // source: source
         });
 
@@ -89,7 +92,7 @@ class SlotLayoutSection {
 
     let tagListTemplate = '<ul class="content-slot__tags">';
     arrayFrom(this.meta.tags.split(',')).forEach((tag) => {
-      tagListTemplate += `<li class="content-slot__tag-pill" data-value="${tag}">${tag}</li>`;
+      tagListTemplate += new TagPill({ tag }).init();
     });
     tagListTemplate += '</ul>';
 
@@ -100,13 +103,15 @@ class SlotLayoutSection {
   renderAudioContent() {
     this.audios = this.element.media.audios;
 
-    Object.entries(this.audios).forEach((audio) => {
+    Object.entries(this.audios).forEach((audio, i) => {
       const [key, source] = audio;
-      const audioLoader = new AudioLoader ({
+      const audioLoader = new AudioLoader({
         element: audio,
         article: this.article,
-        key: key,
-        source: source,
+        key,
+        source,
+        slotIndex: this.index,
+        i,
       });
 
       this.slotLayoutSectionTemplate += audioLoader.init();
@@ -134,7 +139,6 @@ class SlotLayoutSection {
 
     const textTemplate = `
       <div class="text">
-        <h2 class="h2 subtitle">${this.text.subtitle}</h2>
         ${this.text.description}
       </div>
     `;
@@ -144,8 +148,8 @@ class SlotLayoutSection {
   }
 
   returnLayout() {
-    this.slotLayoutSection = `<section class="content-slot__section__${this.selector} grid-start--${this.start} grid-column-span--${this.span}">${this.selector}`;
-
+    this.slotLayoutSection = `<section class="mod--content-slot__section__${this.selector} grid-column-start--${this.start} grid-column-span--${this.span}" ${this.isSlider === true ? 'data-slider="true"' : ''}>`;
+    this.slotLayoutSection += `<div class="content-slot__section__counter">${this.index}</div>`;
     this.slotLayoutSection += this.slotLayoutSectionTemplate;
     this.slotLayoutSection += '</section>';
 

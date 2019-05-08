@@ -1,9 +1,13 @@
 import 'url-search-params-polyfill';
 import scrollToElement from 'scroll-to-element';
+import arrayFrom from 'array-from';
+
 import ContentSlot from '../ContentSlot';
 import ImageLoader from '../ImageLoader';
 import getEventHandlerResize from '../ResizeHandler';
 import AsideText from '../AsideText';
+import QueryHandler from '../QueryHandler';
+import GTagEvent from '../GTagEvent';
 
 
 const BREAKPOINT_KEYS = window.config.breakpointKeys;
@@ -37,6 +41,7 @@ class ArticleRenderer {
   }
 
   init() {
+    console.log(this.media.audios);
     this.buildTemplate();
   }
 
@@ -45,12 +50,21 @@ class ArticleRenderer {
 
     const template = `
       <article
-        class="content-overview__item grid-column-span--${spanClass(getEventHandlerResize().getCurrentViewport())} grid-row-span--2"
+        class="mod--content-overview__item grid-column-span--${spanClass(getEventHandlerResize().getCurrentViewport())} grid-row-span--2"
         id="${this.id}"
         data-id="${this.id}"
       >
-        <h1 class="h1">${this.info.static.title}</h1>
-        ${this.returnThumbs(imageSources)}
+        <div class="mod--content-overview__item__content__holder">
+          <div class="mod--content-overview__item__content__title">
+            <h1 class="h1">${this.info.static.title}</h1>
+            ${this.returnIcons()}
+          </div>
+        </div>
+        <div class="mod--content-overview__item__thumbs__holder">
+          <div class="mod--content-overview__item__thumbs__content">
+            ${this.returnThumbs(imageSources)}
+          </div>
+        </div>
       </article>
     `;
     this.renderInsideTarget(template, this.target);
@@ -77,8 +91,23 @@ class ArticleRenderer {
         element: source[0],
         article: this.element,
       });
-      template += imageLoader.renderThumbTemplate(source[0]);
+      template += imageLoader.renderThumbTemplate(source.entries[0]);
     });
+    return template;
+  }
+
+  returnIcons() {
+    let template = '';
+    if (Object.keys(this.media.audios).length >= 1) {
+      // console.log('Has Audio', Object.keys(this.media.audios).length);
+      template += '<div class="icon__holder"><i class="la la-lg la-volume-down"></i></div>';
+    }
+
+    if (Object.keys(this.media.videos).length >= 1) {
+      // console.log('Has Audio', Object.keys(this.media.audios).length);
+      template += '<div class="icon__holder"><i class="la la-lg la-play"></i></div>';
+    }
+
     return template;
   }
 
@@ -90,22 +119,45 @@ class ArticleRenderer {
   }
 
   initActions() {
-    document.getElementById(this.id).addEventListener('click', () => {
-      history.pushState({}, null, `?id=${this.id}`);
-      scrollToElement(document.getElementById(this.id), CONFIG_SCROLL);
-      console.log(scrollToElement(document.getElementById(this.id), CONFIG_SCROLL));
-      const asideText = new AsideText({
-        element: document.querySelector('aside'),
-        text: this.element.info.static.title,
-      });
-      asideText.init();
+    if (document.getElementById(this.id)) {
+      document.getElementById(this.id).addEventListener('click', () => {
+        console.log('New Click on: ', this.id);
+        const queryHandler = new QueryHandler({
+          page: new URLSearchParams(window.location.search).get('page') || null,
+          id: this.id,
+          tag: new URLSearchParams(window.location.search).get('tag') || null,
+        });
 
-      const contentSlot = new ContentSlot({
-        element: this.element,
-        article: this.element,
+        queryHandler.init();
+
+        const asideText = new AsideText({
+          element: document.querySelector('aside'),
+          text: this.element.info.static.title,
+        });
+        asideText.init();
+
+        const contentSlot = new ContentSlot({
+          element: this.element,
+          article: this.element,
+        });
+        contentSlot.init();
+        scrollToElement(document.querySelector('.mod--content-slot__wrapper'), CONFIG_SCROLL);
+
+        const clickEvent = new GTagEvent({
+          event: {
+            type: 'click',
+            category: `Opening Article: ${this.element.info.static.title}`,
+            action: 'Open Article',
+            label: `Opening Article: ${this.element.info.static.title}`,
+            // value: this.element.info.static.hash,
+          },
+        });
+
+        clickEvent.init();
+
+        const key = 'AIzaSyAbB3PsKaWw3ZNCw19qkKWutuG86D0rfBI';
       });
-      contentSlot.init();
-    });
+    }
   }
 }
 

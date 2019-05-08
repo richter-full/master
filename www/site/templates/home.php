@@ -21,7 +21,7 @@
       },
       {
         name: breakpointKeys.large,
-        width: 1400,
+        width: 1440,
       },
       {
         name: breakpointKeys.xlarge,
@@ -44,12 +44,26 @@
       ease: 'out-cube',
       duration: 1000,
     },
+    site: {
+      title: 'Richterskala',
+    }
   }
 </script>
 <main class="main" role="content">
   <section class="mod--content-overview grid" data-module="ContentOverview">
   </section>
 </main>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138300476-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-138300476-1');
+</script>
+
 
 <? snippet('static/_aside') ?>
 <?php snippet('static/_footer') ?>

@@ -1,8 +1,8 @@
 import 'url-search-params-polyfill';
 import scrollToElement from 'scroll-to-element';
 import arrayFrom from 'array-from';
-import ArticleRenderer from '../ArticleRenderer';
-import ContentSlot from '../ContentSlot';
+
+import Pagination from '../Pagination';
 
 const CONFIG_SCROLL = window.config.generals.scrollConfig;
 
@@ -15,44 +15,41 @@ class ContentOverview {
   }
 
   init() {
-    console.log('Content Overview Init');
     this.fetchContentFromApi();
   }
 
   fetchContentFromApi() {
     fetch('api')
-    .then(res => res.json())
-    .then((data) => {
-      this.articles = data.articles;
-      this.renderArticles();
-    });
+      .then(res => res.json())
+      .then((data) => {
+        window.config.generals.site = {
+          title: data.config.site.title,
+        };
+        console.log('Data Articles: ', data.articles);
+        if (!document.querySelector('.mod--site-info')) {
+          this.insertTitle(data.config.site);
+        }
+        this.articles = data.articles;
+        const pagination = new Pagination({ element: this.element, articles: this.articles }).init();
+        this.articles = pagination.articles;
+        this.currentPage = pagination.currentPage;
+      });
   }
 
-  renderArticles() {
-    let stateObj = { foo: 'bar' };
-
-    arrayFrom(this.articles).forEach((article) => {
-      const articleRenderer = new ArticleRenderer({
-        element: article,
-        target: this.element,
-      });
-      articleRenderer.init();
-      this.watchUrl();
-    });
-  };
-
-  watchUrl() {
-    if (this.query !== null) {
-      const query = new URLSearchParams(window.location.search).get('id');
-      const element = arrayFrom(this.articles).findIndex((element) => {
-        scrollToElement(document.getElementById(element.info.static.hash), CONFIG_SCROLL);
-        const contentSlot = new ContentSlot({
-          element: element,
-          article: element,
-        });
-        contentSlot.init();
-      });
-    }
+  insertTitle(info) {
+    const siteInfoTemplate = `
+      <section class="mod--site-info">
+        <div class="mod--site-info__holder grid">
+          <div class="mod--site-info__holder__title grid-column-span--6">
+            <h1>${info.title}</h1>
+          </div>
+          <div class="mod--site-info__holder__description grid-column-span--6">
+            <p class="mod--site-info__description">${info.description}</p>
+          </div>
+        </div>
+      </section>
+    `;
+    this.element.parentNode.insertAdjacentHTML('afterbegin', siteInfoTemplate);
   }
 }
 

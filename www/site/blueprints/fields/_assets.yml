@@ -4,6 +4,15 @@ fields:
     label: Assets
     type: tabs
 
+  infoUploadToggle:
+    label: Upload Assets
+    type: headline
+
+  uploadToggle:
+    label: Assets Upload Toggle
+    type: toggle
+    default: false
+
   infoMainImages:
     label: Main Images
     type: headline
@@ -14,6 +23,11 @@ fields:
     width: 1/1
     types:
       - image
+
+  mainImagesOptions:
+    label: Slider?
+    type: toggle
+    default: true
 
   infoAdditionalImages:
     label: Additional Images
@@ -26,12 +40,24 @@ fields:
     types:
       - image
 
+  actionImagesOptions:
+    label: Slider?
+    type: toggle
+    default: false
+    width: 1/2
+
   additionalImages:
     extends: __selector
     label: Additional Images
     width: 1/2
     types:
       - image
+
+  additionalImagesOptions:
+    label: Slider?
+    type: toggle
+    default: false
+    width: 1/2
 
   infoAdditionalVideos:
     label: Additional Videos

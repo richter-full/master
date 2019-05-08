@@ -6,6 +6,9 @@ files: true
     poster: 
       label: Poster
       type: selector
+    alt:
+      label: Alt
+      type: text
 fields:
   info: _info
 

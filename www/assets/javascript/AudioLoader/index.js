@@ -4,6 +4,8 @@ class AudioLoader {
     this.article = options.article;
     this.key = options.key;
     this.source = options.source;
+    this.slotIndex = options.slotIndex;
+    this.index = options.i + 1;
   }
 
   init() {
@@ -15,24 +17,32 @@ class AudioLoader {
   }
 
   returnAudioTemplate(source) {
-    const audioTemplate = `
-      <audio src="https://res.cloudinary.com/richterskala/raw/upload/${this.article.info.static.title}/${this.article.info.static.hash}-${source.hash}.${source.extension}" controls autoplay loop>
-        <p>Your browser does not support the audio element </p>
-      </audio>
+    let audioTemplate = `
+      <figure>
+        <audio src="https://res.cloudinary.com/richterskala/raw/upload/${this.article.info.static.title}/${this.article.info.static.hash}-${source.hash}.${source.extension}" controls>
+          <p>Your browser does not support the audio element </p>
+        </audio>
+    `;
+
+    audioTemplate += `
+      <figcaption><strong>Ass.${this.slotIndex}.${this.index}${source.caption !== '' ? `: </strong>${source.caption}` : '</strong>'}</figcaption></figure>
     `;
 
     return audioTemplate;
   }
 
   returnYoutubeEmbed(link) {
-    const youtubeEmbed = `
+    let youtubeEmbed = `
+    <figure>
       <iframe width="560" height="315" src="${link}" frameborder="0"></iframe>
     `;
 
+    youtubeEmbed += `
+      <figcaption><strong>Ass.${this.slotIndex}.${this.index}</figcaption></figure>
+    `;
+
     return youtubeEmbed;
-  };
-
-
+  }
 }
 
 export default AudioLoader;

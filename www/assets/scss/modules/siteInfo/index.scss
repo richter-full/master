@@ -1,0 +1,24 @@
+.mod--site-info {
+  padding-top: $grid-100 / 24;
+  padding-bottom: $grid-100 / 24;
+
+  &__holder {
+    &__title,
+    &__description {
+      padding: 20px;
+    }
+
+    &__title h1 {
+      font-size: 5vw;
+      display: inline-block;
+      line-height: 1;
+      -webkit-text-fill-color: $colors--grey-lightest;/* Will override color (regardless of order) */
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: $colors--black;
+    }
+
+    &__description p {
+      font-size: 24px;
+    }
+  }
+}

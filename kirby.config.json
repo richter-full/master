@@ -8,7 +8,8 @@
       "rangeslider": "https://github.com/JonasDoebertin/kirby-range-slider.git"
     },
     "plugins": {
-      "selector": "https://github.com/storypioneers/kirby-selector.git"
+      "selector": "https://github.com/storypioneers/kirby-selector.git",
+      "staticbuilder": "https://github.com/fvsch/kirby-staticbuilder.git"
     },
     "tags": {},
     "widgets": {}

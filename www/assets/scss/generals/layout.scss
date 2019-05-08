@@ -4,15 +4,20 @@ html {
 
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-size: 1.6rem;
+  font: $default-sans-serif;
+  color: $colors--black;
   overflow-x: hidden;
+  background: $colors--grey-lightest;
 }
 
 main {
   width: 95vw;
   margin-left: 5vw;
+  // padding: 0 80px 0;
 }
 

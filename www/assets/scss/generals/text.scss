@@ -1,0 +1,68 @@
+h1 {
+  font: $default-sans-serif;
+  font-size: 4vw;
+}
+
+h2 {
+  font: $default-sans-serif;
+  font-size: 3.6rem;
+
+  &.subtitle {
+    // font-style: italic;
+    -webkit-text-fill-color: $colors--white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $colors--black;
+  }
+}
+
+h3 {
+  font: $default-serif;
+  font-size: 2.6rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: $colors--black;
+  // -webkit-text-fill-color: $colors--white; /* Will override color (regardless of order) */
+  // -webkit-text-stroke-width: 1px;
+  // -webkit-text-stroke-color: $colors--blue;
+}
+
+h4,
+h5 {
+  font: $default-monospaced;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+p {
+  font: $default-sans-serif;
+  font-size: 2.2rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  em {
+    font-style: italic;
+  }
+}
+
+blockquote {
+  font: $default-serif;
+  font-style: italic;
+  font-size: 4.4rem;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+cite {
+  font: $default-monospaced;
+  color: $colors--black;
+  font-weight: 400;
+}

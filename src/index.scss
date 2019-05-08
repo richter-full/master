@@ -1,10 +1,13 @@
 @import 'reset-css';
 
 /* Static General Styling and Variables */
+@import '../www/assets/scss/generals/fonts';
 @import '../www/assets/scss/generals/variables';
+@import '../www/assets/scss/generals/text';
 @import '../www/assets/scss/generals/layout';
 @import '../www/assets/scss/generals/grid';
 @import '../www/assets/scss/generals/images';
+@import '../www/assets/scss/generals/videos';
 
 
 /* Modules */

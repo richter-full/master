@@ -1,45 +1,72 @@
-import { tns } from 'tiny-slider/src/tiny-slider';
-import ImageLoader from '../ImageLoader';
+import Glide from '@glidejs/glide';
 
 class ContentSlider {
   constructor(options = {}) {
     this.element = options.element;
     this.resource = options.resource || null;
+    this.slidesContent = this.element.querySelectorAll('figure') || null;
   }
 
   init() {
-    this.createWrapper();
+    this.createDomContent();
   }
 
-  createWrapper() {
-    const sliderWrapper = document.createElement('div');
-    sliderWrapper.classList.add('content-slider__wrapper');
-    sliderWrapper.innerText = 'Slider Content';
-    this.resource.forEach((image) => {
-      console.log('image and Element: ', image, this.element);
-      let template = '<div class="slide">';
-      const imageLoader = new ImageLoader({
-        element: this.element,
-        article: this.element,
+  createDomContent() {
+    console.log('SlidesContent: ', this.slidesContent, this.slidesContent.length);
+    if (this.slidesContent !== null && this.slidesContent.length > 1) {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('glide');
+      const track = document.createElement('div');
+      track.classList.add('glide__track');
+      track.dataset.glideEl = 'track';
+
+      const slides = document.createElement('ul');
+      slides.classList.add('glide__slides');
+
+      this.slidesContent.forEach((picture, index) => {
+        const li = document.createElement('li');
+        li.classList.add('glide__slide');
+        li.dataset.index = index;
+        picture.parentNode.insertBefore(li, picture);
+        li.appendChild(picture);
+        slides.appendChild(li);
       });
-      template += imageLoader.renderSrcSet(this.element);
-      template += '</div>';
-      sliderWrapper.innerHTML += template;
-    });
 
-    this.initSlider(sliderWrapper);
+      const arrows = `
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="la la-lg la-angle-left"></i></button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="la la-lg la-angle-right"></i></button>
+        </div>
+      `;
+
+      const bullets = `
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+          <button class="glide__bullet" data-glide-dir="=0"></button>
+          <button class="glide__bullet" data-glide-dir="=1"></button>
+          <button class="glide__bullet" data-glide-dir="=2"></button>
+        </div>
+      `;
+
+      track.appendChild(slides);
+      wrapper.appendChild(track);
+      wrapper.insertAdjacentHTML('beforeend', arrows);
+      if (this.slidesContent.length > 2) {
+        wrapper.insertAdjacentHTML('beforeend', bullets);
+      }
+      this.element.appendChild(wrapper);
+      this.initSlider();
+    }
   }
 
-  initSlider(sliderWrapper) {
-    console.log(sliderWrapper);
-    const contentSlider = new tns({
-      container: '.content-slider__wrapper',
-      items: 3,
-      slideBy: 'page',
-      autoplay: true,
-    });
-
-    return contentSlider;
+  initSlider() {
+    new Glide(this.element, {
+      type: 'slider',
+      autoplay: '7000',
+      rewind: false,
+      perView: 1.3,
+      // focusAt: 1,
+      gap: 40,
+    }).mount();
   }
 
 }
