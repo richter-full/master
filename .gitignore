@@ -75,4 +75,5 @@ www/site/fields/tabs
 www/site/fields/gallery
 www/site/fields/rangeslider
 www/site/plugins/selector
+www/site/plugins/staticbuilder
 # </KirbyWebpack>
