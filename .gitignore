@@ -1,16 +1,16 @@
 ### Kirby ###
 # By default, git ignores all content from sub-pages folders
 # Comment the line below if you want git to handle all your content
-www/content/*/*/*
-www/thumbs/*
-!www/thumbs/index.html
-www/site/cache/*
-!www/site/cache/index.html
-www/site/accounts/*
-!www/site/accounts/index.html
-www/assets/avatars/*
-!www/assets/avatars/index.html
-www/site/config/license.php
+#www/content/*/*/*
+#www/thumbs/*
+#!www/thumbs/index.html
+#www/site/cache/*
+#!www/site/cache/index.html
+#www/site/accounts/*
+#!www/site/accounts/index.html
+#www/assets/avatars/*
+#!www/assets/avatars/index.html
+#www/site/config/license.php
 
 ### PHP ###
 php-error.log*
