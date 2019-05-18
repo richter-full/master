@@ -1,5 +1,5 @@
-&__meta {
-  .content-slot__tags {
+&--meta__holder {
+  .mod--content-slot__tags {
     li.tag-pill {
       font: $default-sans-serif;
       font-size: 16px;
@@ -7,12 +7,13 @@
       padding: 4px 12px;
       display: inline-block;
       margin: 0 10px 10px 0;
-      background: $colors--white;
+      background: $colors--black;
       border: 1px solid $colors--black;
-      color: $colors--black;
+      color: $colors--white;
       vertical-align: baseline;
       transition: all 0.3s ease;
       cursor: pointer;
+      // z-index: 20;
       // -webkit-text-fill-color: $colors--black; /* Will override color (regardless of order) */
       // -webkit-text-stroke-width: 1px;
       // -webkit-text-stroke-color: $colors--white;
@@ -20,8 +21,8 @@
       &:hover,
       &:target,
       &.active {
-        background: $colors--black;
-        color: $colors--white;
+        background: $colors--white;
+        color: $colors--black;
       }
       // border-radius: 10px;
     }

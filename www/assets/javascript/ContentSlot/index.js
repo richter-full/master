@@ -115,12 +115,12 @@ class ContentSlot {
 
   generateSlotLayout() {
     const articleInfoTemplate = `
-      <section class="mod--content-slot__info">
-        <div class="mod--content-slot__info__holder grid">
-          <div class="mod--content-slot__info__holder__title grid-column-span--6">
+      <section class="${CLASSNAME_CONTENTSLOT}__info">
+        <div class="${CLASSNAME_CONTENTSLOT}__info__holder grid">
+          <div class="${CLASSNAME_CONTENTSLOT}__info__holder__title grid-column-span--6">
             <h1>${this.article.info.static.title}</h1>
           </div>
-          <div class="mod--content-slot__info__holder__description grid-column-span--6">
+          <div class="${CLASSNAME_CONTENTSLOT}__info__holder__description grid-column-span--6">
             <p>${this.article.info.additionals.subtitle}</p>
           </div>
         </div>

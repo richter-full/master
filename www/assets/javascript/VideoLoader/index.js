@@ -38,7 +38,7 @@ class VideoLoader {
     `;
 
     youtubeEmbed += `
-      <figcaption><strong>Ass.${this.slotIndex}.${this.index}${link.caption !== '' ? `: </strong>${link.caption}` : '</strong>'}</figcaption></figure>
+      <figcaption><strong>Ass.${this.slotIndex}.${this.index}${link.caption !== undefined ? `: </strong>${link.caption}` : '</strong>'}</figcaption></figure>
     `;
 
     return youtubeEmbed;

@@ -16,6 +16,32 @@ img {
 figure {
   display: block;
   // height: 200px;
+  position: relative;
+
+  .lazyload {
+    opacity: 0;
+  }
+
+  .lazyload__placeholder {
+    background: $colors--white;
+    // border: 1px solid $colors--black;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    transition: all 0.3s ease 0.5s;
+  }
+
+  .lazyloaded {
+    opacity: 1;
+  }
+
+  .lazyloaded + .lazyload__placeholder {
+    width: 0;
+    border: none;
+  }
 }
 
 figcaption {
@@ -26,6 +52,11 @@ figcaption {
 
   strong {
     font-weight: 700;
+  }
+
+  @include breakpoint-max($breakpoint-medium) {
+    font-size: 1.2rem;
+    margin-top: 10px;
   }
 }
 
@@ -60,6 +91,10 @@ figcaption {
         -webkit-text-fill-color: $colors--black; /* Will override color (regardless of order) */
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: $colors--black;
+      }
+
+      @include breakpoint-max($breakpoint-medium) {
+        font-size: 7vw;
       }
     }
 

@@ -1,17 +1,27 @@
 h1 {
   font: $default-sans-serif;
   font-size: 4vw;
+
+  @include breakpoint-max($breakpoint-medium) {
+    font-size: 3.6rem;
+  }
 }
 
 h2 {
   font: $default-sans-serif;
   font-size: 3.6rem;
+  margin-bottom: 15px;
+  margin-top: 15px;
 
   &.subtitle {
     // font-style: italic;
     -webkit-text-fill-color: $colors--white; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: $colors--black;
+  }
+
+  @include breakpoint-max($breakpoint-medium) {
+    font-size: 2.8rem;
   }
 }
 
@@ -24,6 +34,11 @@ h3 {
   // -webkit-text-fill-color: $colors--white; /* Will override color (regardless of order) */
   // -webkit-text-stroke-width: 1px;
   // -webkit-text-stroke-color: $colors--blue;
+
+  @include breakpoint-max($breakpoint-medium) {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
 }
 
 h4,
@@ -32,6 +47,10 @@ h5 {
   font-size: 1.4rem;
   line-height: 1.2;
   margin-bottom: 20px;
+
+  @include breakpoint-max($breakpoint-medium) {
+    font-size: 1.2rem;
+  }
 }
 
 p {
@@ -51,6 +70,10 @@ p {
   em {
     font-style: italic;
   }
+
+  @include breakpoint-max($breakpoint-medium) {
+    font-size: 1.7rem;
+  }
 }
 
 blockquote {
@@ -59,10 +82,18 @@ blockquote {
   font-size: 4.4rem;
   line-height: 1.4;
   margin-bottom: 10px;
+
+  @include breakpoint-max($breakpoint-medium) {
+    font-size: 2.8rem;
+  }
 }
 
 cite {
   font: $default-monospaced;
   color: $colors--black;
   font-weight: 400;
+
+  @include breakpoint-max($breakpoint-medium) {
+    font-size: 1.4rem;
+  }
 }

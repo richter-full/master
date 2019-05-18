@@ -4,9 +4,14 @@
   &__item {
     padding: #{$default-spacing * 4};
     padding-top: 0;
-    height: $grid-100 / 12 * 3;
+    height: $grid-95 / 12 * 3;
     position: relative;
     cursor: pointer;
+
+    @include breakpoint-max($breakpoint-small) {
+      height: $grid-100 / 12 * 6;
+      grid-column-end: span 6;
+    }
 
     &__content__holder {
       position: relative;
@@ -17,7 +22,7 @@
 
     &__content__title {
       position: absolute;
-      top: $grid-100 / 12;
+      top: $grid-95 / 12;
       left: 0;
       right: 0;
       text-align: left;
@@ -25,26 +30,35 @@
 
       h1 {
         font: $default-sans-serif;
-        font-size: 4.4rem;
+        font-size: 2.5vw;
         color: $colors--black;
         -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: $colors--black;
         transition: all 0.5s ease;
         letter-spacing: 0.025em;
+
+        @include breakpoint-max($breakpoint-small) {
+          font-size: 6vw;
+        }
       }
 
       .icon__holder {
         display: inline-block;
-        background: $colors--black;
+        // background: $colors--white;
         width: 30px;
         height: 30px;
-        color: $colors--white;
+        border: 1px solid $colors--black;
+        color: $colors--black;
         font-size: 16px;
         line-height: 30px;
         text-align: center;
         border-radius: 15px;
         margin-right: 5px;
+
+        i {
+          transform: translate(6%, -5%);
+        }
       }
     }
 
@@ -56,6 +70,10 @@
       bottom: 0;
       z-index: $zindex-overview-thumbs;
 
+      @include breakpoint-max($breakpoint-small) {
+        top: 50px;
+      }
+
       figure {
         width: 60%;
         height: 60%;
@@ -63,6 +81,13 @@
         max-height: 200px;
         position: absolute;
         transition: all 0.5s ease-out;
+
+        @include breakpoint-max($breakpoint-small) {
+          width: 50%;
+          height: 50%;
+          max-width: 150px;
+          max-height: 150px;
+        }
 
         img {
           box-shadow: 0 0 10px 0px rgba(160, 160, 160, 0.7);
@@ -97,26 +122,110 @@
         -webkit-text-stroke-color: $colors--black;
       }
 
-      figure {
-        &:nth-of-type(1) {
-          top: (random(200) - 120) + px;
-          left: (random(200) - 120) + px;
-        }
+      &:nth-of-type(odd) {
+        figure {
+          &:nth-of-type(1) {
+            top: (random(200) - 120) + px;
+            left: (random(200) - 120) + px;
 
-        &:nth-of-type(2) {
-          top: (random(200) - 120) + px;
-          left: (random(200) - 120) + px;
-        }
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(100) - 60) + px;
+              left: (random(100) - 60) + px;
+            }
 
-        &:nth-of-type(3) {
-          top: (random(100) - 60) + px;
-          left: (random(100) - 60) + px;
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(150) - 90) + px;
+              left: (random(150) - 90) + px;
+            }
+          }
+
+          &:nth-of-type(2) {
+            top: (random(200) - 120) + px;
+            left: (random(200) - 120) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(100) - 60) + px;
+              left: (random(100) - 60) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(150) - 90) + px;
+              left: (random(150) - 90) + px;
+            }
+          }
+
+          &:nth-of-type(3) {
+            top: (random(100) - 60) + px;
+            left: (random(100) - 60) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(50) - 30) + px;
+              left: (random(50) - 30) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(75) - 30) + px;
+              left: (random(75) - 30) + px;
+            }
+          }
         }
       }
-    }
-  }
 
-  .mod--content-slot__section {
-    @import 'meta';
+      &:nth-of-type(even) {
+        figure {
+          &:nth-of-type(1) {
+            top: (random(200) - 120) + px;
+            left: (random(200) - 120) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(100) - 60) + px;
+              left: (random(100) - 60) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(150) - 90) + px;
+              left: (random(150) - 90) + px;
+            }
+          }
+
+          &:nth-of-type(2) {
+            top: (random(200) - 120) + px;
+            left: (random(200) - 120) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(100) - 60) + px;
+              left: (random(100) - 60) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(150) - 90) + px;
+              left: (random(150) - 90) + px;
+            }
+          }
+
+          &:nth-of-type(3) {
+            top: (random(100) - 60) + px;
+            left: (random(100) - 60) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(50) - 30) + px;
+              left: (random(50) - 30) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(75) - 30) + px;
+              left: (random(75) - 30) + px;
+            }
+          }
+        }
+      }
+
+
+      .icon__holder {
+        background: $colors--black;
+        color: $colors--white;
+        // border: 1px solid $colors--white;
+      }
+    }
   }
 }

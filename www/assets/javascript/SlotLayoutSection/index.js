@@ -5,6 +5,8 @@ import AudioLoader from '../AudioLoader';
 import TagPill from '../TagPill';
 // import ContentSlider from '../ContentSlider';
 
+const CLASSNAME_CONTENTSLOT = 'mod--content-slot';
+
 class SlotLayoutSection {
   constructor(options = {}) {
     this.element = options.element;
@@ -21,8 +23,7 @@ class SlotLayoutSection {
   }
 
   init() {
-
-    console.log('SlotLayoutSection: ', this.element, this.index);
+    // console.log('SlotLayoutSection: ', this.element, this.index);
     this.checkForType();
 
     return this.slotLayoutSection;
@@ -90,7 +91,7 @@ class SlotLayoutSection {
   renderMetaContent() {
     this.meta = this.element.info.meta;
 
-    let tagListTemplate = '<ul class="content-slot__tags">';
+    let tagListTemplate = `<ul class="${CLASSNAME_CONTENTSLOT}__tags">`;
     arrayFrom(this.meta.tags.split(',')).forEach((tag) => {
       tagListTemplate += new TagPill({ tag }).init();
     });
@@ -148,10 +149,17 @@ class SlotLayoutSection {
   }
 
   returnLayout() {
-    this.slotLayoutSection = `<section class="mod--content-slot__section__${this.selector} grid-column-start--${this.start} grid-column-span--${this.span}" ${this.isSlider === true ? 'data-slider="true"' : ''}>`;
-    this.slotLayoutSection += `<div class="content-slot__section__counter">${this.index}</div>`;
+    this.slotLayoutSection = `
+      <section class="${CLASSNAME_CONTENTSLOT}__section--${this.selector} grid-column-start--${this.start} grid-column-span--${this.span}" ${this.isSlider === true ? 'data-slider="true"' : ''}>
+        <div class="${CLASSNAME_CONTENTSLOT}__section--${this.selector}__holder content-area">
+    `;
+    this.slotLayoutSection += `
+      <div class="${CLASSNAME_CONTENTSLOT}__section--${this.selector}__holder__counter">
+        ${this.index}
+      </div>
+    `;
     this.slotLayoutSection += this.slotLayoutSectionTemplate;
-    this.slotLayoutSection += '</section>';
+    this.slotLayoutSection += '</div></section>';
 
     return this.slotLayoutSection;
   }

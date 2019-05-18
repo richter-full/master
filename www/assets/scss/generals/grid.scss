@@ -1,16 +1,28 @@
 .grid {
   display: grid;
-  grid-template-columns: [line1] calc(#{$grid-100} / 12) [line2] calc(#{$grid-100} / 12) [line3] calc(#{$grid-100} / 12) [line4] calc(#{$grid-100} / 12) [line5] calc(#{$grid-100} / 12) [line6] calc(#{$grid-100} / 12) [line7] calc(#{$grid-100} / 12) [line8] calc(#{$grid-100} / 12) [line9] calc(#{$grid-100} / 12) [line10] calc(#{$grid-100} / 12) [line11] calc(#{$grid-100} / 12) [line12] calc(#{$grid-100} / 12) [line13];
+  grid-template-columns: [line1] calc(#{$grid-95} / 12) [line2] calc(#{$grid-95} / 12) [line3] calc(#{$grid-95} / 12) [line4] calc(#{$grid-95} / 12) [line5] calc(#{$grid-95} / 12) [line6] calc(#{$grid-95} / 12) [line7] calc(#{$grid-95} / 12) [line8] calc(#{$grid-95} / 12) [line9] calc(#{$grid-95} / 12) [line10] calc(#{$grid-95} / 12) [line11] calc(#{$grid-95} / 12) [line12] calc(#{$grid-95} / 12) [line13];
   // grid-auto-rows: calc(#{$grid-100} / 12);
   // grid-column-gap: 20px;
   // grid-row-gap: 20px;
+
+  @include breakpoint-max($breakpoint-small) {
+    display: grid;
+    grid-template-columns: [line1] calc(#{$grid-100} / 12) [line2] calc(#{$grid-100} / 12) [line3] calc(#{$grid-100} / 12) [line4] calc(#{$grid-100} / 12) [line5] calc(#{$grid-100} / 12) [line6] calc(#{$grid-100} / 12) [line7] calc(#{$grid-100} / 12) [line8] calc(#{$grid-100} / 12) [line9] calc(#{$grid-100} / 12) [line10] calc(#{$grid-100} / 12) [line11] calc(#{$grid-100} / 12) [line12] calc(#{$grid-100} / 12) [line13];
+  }
 }
+
+
 
 .grid--slot {
   display: grid;
-  grid-template-columns: [line1] calc(#{$grid-100} / 12) [line2] calc(#{$grid-100} / 12) [line3] calc(#{$grid-100} / 12) [line4] calc(#{$grid-100} / 12) [line5] calc(#{$grid-100} / 12) [line6] calc(#{$grid-100} / 12) [line7] calc(#{$grid-100} / 12) [line8] calc(#{$grid-100} / 12) [line9] calc(#{$grid-100} / 12) [line10] calc(#{$grid-100} / 12) [line11] calc(#{$grid-100} / 12) [line12] calc(#{$grid-100} / 12) [line13];
+  grid-template-columns: [line1] calc(#{$grid-95} / 12) [line2] calc(#{$grid-95} / 12) [line3] calc(#{$grid-95} / 12) [line4] calc(#{$grid-95} / 12) [line5] calc(#{$grid-95} / 12) [line6] calc(#{$grid-95} / 12) [line7] calc(#{$grid-95} / 12) [line8] calc(#{$grid-95} / 12) [line9] calc(#{$grid-95} / 12) [line10] calc(#{$grid-95} / 12) [line11] calc(#{$grid-95} / 12) [line12] calc(#{$grid-95} / 12) [line13];
   // grid-column-gap: 20px;
   grid-row-gap: 20px;
+
+  @include breakpoint-max($breakpoint-small) {
+    display: grid;
+    grid-template-columns: [line1] calc(#{$grid-100} / 12) [line2] calc(#{$grid-100} / 12) [line3] calc(#{$grid-100} / 12) [line4] calc(#{$grid-100} / 12) [line5] calc(#{$grid-100} / 12) [line6] calc(#{$grid-100} / 12) [line7] calc(#{$grid-100} / 12) [line8] calc(#{$grid-100} / 12) [line9] calc(#{$grid-100} / 12) [line10] calc(#{$grid-100} / 12) [line11] calc(#{$grid-100} / 12) [line12] calc(#{$grid-100} / 12) [line13];
+  }
 }
 
 .grid-column-span {
@@ -60,6 +72,23 @@
 
   &--12 {
     grid-column-end: span 12;
+  }
+
+  @include breakpoint-max($breakpoint-small) {
+    &--1,
+    &--2,
+    &--3,
+    &--4,
+    &--5,
+    &--6,
+    &--7,
+    &--8,
+    &--9,
+    &--10,
+    &--11,
+    &--12 {
+      grid-column-end: span 12;
+    }
   }
 }
 
@@ -111,6 +140,23 @@
   &--12 {
     grid-row-end: span 12;
   }
+
+  @include breakpoint-max($breakpoint-small) {
+    &--1,
+    &--2,
+    &--3,
+    &--4,
+    &--5,
+    &--6,
+    &--7,
+    &--8,
+    &--9,
+    &--10,
+    &--11,
+    &--12 {
+      grid-row-end: span 6;
+    }
+  }
 }
 
 .grid-column-start {
@@ -160,5 +206,22 @@
 
   &--12 {
     grid-column-start: 12;
+  }
+
+  @include breakpoint-max($breakpoint-small) {
+    &--1,
+    &--2,
+    &--3,
+    &--4,
+    &--5,
+    &--6,
+    &--7,
+    &--8,
+    &--9,
+    &--10,
+    &--11,
+    &--12 {
+      grid-column-start: 1;
+    }
   }
 }

@@ -37,5 +37,20 @@
       text-indent: 100%;
     }
   }
+
+  @include breakpoint-max($breakpoint-small) {
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    transform: none;
+    height: 5.5vh;
+
+    .aside-text {
+      font-size: 4.5vh;
+      height: 100%;
+      line-height: 115%;
+    }
+  }
 }
 
