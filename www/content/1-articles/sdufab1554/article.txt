@@ -1,0 +1,181 @@
+Tab1: 
+
+----
+
+Infostatic: 
+
+----
+
+Title: SDUFAB1554
+
+----
+
+Infometa: 
+
+----
+
+Tags: 
+
+----
+
+Date: 2019-04-21
+
+----
+
+Zip: 61279
+
+----
+
+Degrees: 15
+
+----
+
+Weather: 5
+
+----
+
+Emotion: 4
+
+----
+
+Infoadditionals: 
+
+----
+
+Subtitle: 
+
+----
+
+Description: 
+
+----
+
+Quotetext: 
+
+----
+
+Quoteauthor: 
+
+----
+
+Tab2: 
+
+----
+
+Infomainimages: 
+
+----
+
+Mainimages: 
+
+----
+
+Infoadditionalimages: 
+
+----
+
+Actionimages: 
+
+----
+
+Additionalimages: 
+
+----
+
+Infoadditionalvideos: 
+
+----
+
+Actionvideofiles: 
+
+----
+
+Actionvideolink: 
+
+----
+
+Aftervideofiles: 
+
+----
+
+Aftervideolink: 
+
+----
+
+Infoadditionalaudio: 
+
+----
+
+Audiofile: 
+
+----
+
+Audiolink: 
+
+----
+
+Tab3: 
+
+----
+
+Infostructure: 
+
+----
+
+Contentstructure: 
+
+- 
+  selector: meta
+  type: meta
+  start: 1
+  span: 6
+- 
+  selector: quote
+  type: quote
+  start: 1
+  span: 6
+- 
+  selector: description
+  type: text
+  start: 1
+  span: 8
+- 
+  selector: mainImages
+  type: image
+  start: 1
+  span: 12
+- 
+  selector: actionImages
+  type: image
+  start: 1
+  span: 12
+- 
+  selector: additionalImages
+  type: image
+  start: 1
+  span: 12
+- 
+  selector: actionVideoFiles
+  type: video
+  start: 1
+  span: 8
+- 
+  selector: actionVideoLink
+  type: video
+  start: 1
+  span: 8
+- 
+  selector: afterVideoFiles
+  type: video
+  start: 1
+  span: 8
+- 
+  selector: afterVideoLink
+  type: video
+  start: 1
+  span: 8
+- 
+  selector: additionalAudio
+  type: audio
+  start: 1
+  span: 4
