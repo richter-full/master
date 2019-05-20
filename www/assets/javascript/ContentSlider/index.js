@@ -23,6 +23,10 @@ class ContentSlider {
       const slides = document.createElement('ul');
       slides.classList.add('glide__slides');
 
+      let bullets = `
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+      `;
+
       this.slidesContent.forEach((picture, index) => {
         const li = document.createElement('li');
         li.classList.add('glide__slide');
@@ -30,22 +34,21 @@ class ContentSlider {
         picture.parentNode.insertBefore(li, picture);
         li.appendChild(picture);
         slides.appendChild(li);
+        bullets += `<button class="glide__bullet" data-glide-dir="=${index}" title="Slide to Slide ${index}" ></button>`;
       });
+
+      bullets += `
+        </div>;
+      `
 
       const arrows = `
         <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="la la-lg la-angle-left"></i></button>
-          <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="la la-lg la-angle-right"></i></button>
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<" title="Previous Slide"><i class="la la-lg la-angle-left"></i></button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">" title="Next Slide"><i class="la la-lg la-angle-right"></i></button>
         </div>
       `;
 
-      const bullets = `
-        <div class="glide__bullets" data-glide-el="controls[nav]">
-          <button class="glide__bullet" data-glide-dir="=0"></button>
-          <button class="glide__bullet" data-glide-dir="=1"></button>
-          <button class="glide__bullet" data-glide-dir="=2"></button>
-        </div>
-      `;
+
 
       track.appendChild(slides);
       wrapper.appendChild(track);

@@ -34,7 +34,7 @@ class AudioLoader {
   returnYoutubeEmbed(link) {
     let youtubeEmbed = `
     <figure>
-      <iframe width="560" height="315" src="${link}" frameborder="0"></iframe>
+      <iframe title="Streaming Content from ${link}" width="560" height="315" src="${link}" frameborder="0"></iframe>
     `;
 
     youtubeEmbed += `
