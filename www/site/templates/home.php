@@ -45,11 +45,11 @@
       duration: 1000,
     },
     site: {
-      title: 'Richterskala',
+      title: document.querySelector('body').dataset.title,
     }
   }
 </script>
-<main class="main" role="content">
+<main class="main" role="main">
   <section class="mod--content-overview grid" data-module="ContentOverview">
   </section>
 </main>
@@ -66,4 +66,4 @@
 
 
 <? snippet('static/_aside') ?>
-<?php snippet('static/_footer') ?>
+<? snippet('static/_footer') ?>

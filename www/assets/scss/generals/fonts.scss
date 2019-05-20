@@ -1,69 +1,69 @@
 @import 'line-awesome.scss';
 
-@font-face {
-  font-family: 'Suisse Intl';
-  src: url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.eot');
-  src:
-    url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.woff2') format('woff2'),
-    url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.woff') format('woff'),
-    url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.ttf') format('truetype'),
-    url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.svg#svgFontName') format('svg');
-  font-weight: 600;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'Suisse Intl';
+//   src: url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.eot');
+//   src:
+//     url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.eot?#iefix') format('embedded-opentype'),
+//     url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.woff2') format('woff2'),
+//     url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.woff') format('woff'),
+//     url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.ttf') format('truetype'),
+//     url('../../fonts/suisse/intl/bold/suissebpintl-bold-webfont.svg#svgFontName') format('svg');
+//   font-weight: 600;
+//   font-style: normal;
+// }
 
-@font-face {
-  font-family: 'Suisse Intl';
-  src: url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.eot');
-  src:
-    url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.woff2') format('woff2'),
-    url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.woff') format('woff'),
-    url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.ttf') format('truetype'),
-    url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.svg#svgFontName') format('svg');
-  font-weight: 400;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'Suisse Intl';
+//   src: url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.eot');
+//   src:
+//     url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.eot?#iefix') format('embedded-opentype'),
+//     url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.woff2') format('woff2'),
+//     url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.woff') format('woff'),
+//     url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.ttf') format('truetype'),
+//     url('../../fonts/suisse/intl/regular/suissebpintl-regular-webfont.svg#svgFontName') format('svg');
+//   font-weight: 400;
+//   font-style: normal;
+// }
 
-@font-face {
-  font-family: 'Suisse Intl';
-  src: url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.eot');
-  src:
-    url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.woff2') format('woff2'),
-    url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.woff') format('woff'),
-    url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.ttf') format('truetype'),
-    url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.svg#svgFontName') format('svg');
-  font-weight: 200;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'Suisse Intl';
+//   src: url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.eot');
+//   src:
+//     url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.eot?#iefix') format('embedded-opentype'),
+//     url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.woff2') format('woff2'),
+//     url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.woff') format('woff'),
+//     url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.ttf') format('truetype'),
+//     url('../../fonts/suisse/intl/light/suissebpintl-light-webfont.svg#svgFontName') format('svg');
+//   font-weight: 200;
+//   font-style: normal;
+// }
 
-@font-face {
-  font-family: 'Suisse Works';
-  src: url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.eot');
-  src:
-    url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.woff2') format('woff2'),
-    url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.woff') format('woff'),
-    url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.ttf') format('truetype'),
-    url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.svg#svgFontName') format('svg');
-  font-weight: 600;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'Suisse Works';
+//   src: url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.eot');
+//   src:
+//     url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.eot?#iefix') format('embedded-opentype'),
+//     url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.woff2') format('woff2'),
+//     url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.woff') format('woff'),
+//     url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.ttf') format('truetype'),
+//     url('../../fonts/suisse/works/bold/suisseworks-bold-webfont.svg#svgFontName') format('svg');
+//   font-weight: 600;
+//   font-style: normal;
+// }
 
-@font-face {
-  font-family: 'Suisse Works';
-  src: url('../../fonts/suisse/works/book/suisseworks-book-webfont.eot');
-  src:
-    url('../../fonts/suisse/works/book/suisseworks-book-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../../fonts/suisse/works/book/suisseworks-book-webfont.woff2') format('woff2'),
-    url('../../fonts/suisse/works/book/suisseworks-book-webfont.woff') format('woff'),
-    url('../../fonts/suisse/works/book/suisseworks-book-webfont.ttf') format('truetype'),
-    url('../../fonts/suisse/works/book/suisseworks-book-webfont.svg#svgFontName') format('svg');
-  font-weight: 400;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'Suisse Works';
+//   src: url('../../fonts/suisse/works/book/suisseworks-book-webfont.eot');
+//   src:
+//     url('../../fonts/suisse/works/book/suisseworks-book-webfont.eot?#iefix') format('embedded-opentype'),
+//     url('../../fonts/suisse/works/book/suisseworks-book-webfont.woff2') format('woff2'),
+//     url('../../fonts/suisse/works/book/suisseworks-book-webfont.woff') format('woff'),
+//     url('../../fonts/suisse/works/book/suisseworks-book-webfont.ttf') format('truetype'),
+//     url('../../fonts/suisse/works/book/suisseworks-book-webfont.svg#svgFontName') format('svg');
+//   font-weight: 400;
+//   font-style: normal;
+// }
 
 @font-face {
   font-family: 'Suisse Works';
@@ -74,6 +74,18 @@
     url('../../fonts/suisse/works/book-italic/suisseworks-bookitalic-webfont.woff') format('woff'),
     url('../../fonts/suisse/works/book-italic/suisseworks-bookitalic-webfont.ttf') format('truetype'),
     url('../../fonts/suisse/works/book-italic/suisseworks-bookitalic-webfont.svg#svgFontName') format('svg');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../../fonts/helvetica/HelveticaNeue-Medium.eot');
+  src:
+    url('../../fonts/helvetica/HelveticaNeue-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/helvetica/HelveticaNeue-Medium.woff') format('woff'),
+    url('../../fonts/helvetica/HelveticaNeue-Medium.ttf') format('truetype'),
+    url('../../fonts/helvetica/HelveticaNeue-Medium.svg#svgFontName') format('svg');
   font-weight: 400;
   font-style: italic;
 }

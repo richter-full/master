@@ -133,6 +133,7 @@ class ContentSlot {
      */
     const closeButton = document.createElement('button');
     closeButton.classList.add('close-button');
+    closeButton.setAttribute('title', 'Close Content Slot');
     closeButton.innerHTML = '<i class="la la-lg la-close"></i>';
     closeButton.addEventListener('click', () => {
       // console.log('Closing?');
@@ -185,7 +186,7 @@ class ContentSlot {
     slotContent.innerHTML = elements;
 
     this.slotWrapper.appendChild(slotContent);
-    console.log('Insert Content', slotContent);
+    // console.log('Insert Content', slotContent);
     this.initSliders();
     this.initTags();
   }

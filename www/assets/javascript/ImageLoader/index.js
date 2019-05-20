@@ -38,7 +38,7 @@ class ImageLoader {
   renderThumbTemplate(src) {
     const template = `
       <figure class="mod--content-overview__item__thumb">
-        <img src="${this.returnImgPath(this.article.info.static.title+'/'+this.article.info.static.hash+'-'+src.hash, 400, 400, src.extension, 40000, true)}" />
+        <img alt="" src="${this.returnImgPath(this.article.info.static.title+'/'+this.article.info.static.hash+'-'+src.hash, 400, 400, src.extension, 40000, true)}" />
       </figure>
     `
     return template;
@@ -65,7 +65,7 @@ class ImageLoader {
     });
 
     srcSetTemplate += `
-      <img class="lazyload" data-src="${this.returnImgPath(name, 1000, 1000, src.extension, 0)}" src="${this.returnImgPath(name, 1000, 1000, src.extension, 0)}" ${src.caption !== '' ? `alt="${src.caption}"` : ''}/>
+      <img class="lazyload" data-src="${this.returnImgPath(name, 1000, 1000, src.extension, 0)}" src="${this.returnImgPath(name, 1000, 1000, src.extension, 0)}" ${src.caption !== '' ? `alt="${src.caption}"` : 'alt="Image"'}/>
       <div class="lazyload__placeholder"></div>
     `;
     // oncontextmenu="alert('Nix da Brudi!'); return false;"
