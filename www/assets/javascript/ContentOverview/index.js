@@ -25,7 +25,7 @@ class ContentOverview {
         window.config.generals.site = {
           title: data.config.site.title,
         };
-        console.log('Data Articles: ', data.articles);
+        // console.log('Data Articles: ', data.articles);
         if (!document.querySelector('.mod--site-info')) {
           this.insertTitle(data.config.site);
         }

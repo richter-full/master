@@ -8,7 +8,7 @@ class TagPill {
   }
 
   init() {
-    console.log('New Tag Pill: ', this.tag);
+    // console.log('New Tag Pill: ', this.tag);
     this.tagPill = `<li class="tag-pill">${this.tag}</li>`;
 
     return this.tagPill;

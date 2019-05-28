@@ -41,7 +41,7 @@ class ArticleRenderer {
   }
 
   init() {
-    console.log(this.media.audios);
+    // console.log(this.media.audios);
     this.buildTemplate();
   }
 
@@ -121,7 +121,7 @@ class ArticleRenderer {
   initActions() {
     if (document.getElementById(this.id)) {
       document.getElementById(this.id).addEventListener('click', () => {
-        console.log('New Click on: ', this.id);
+        // console.log('New Click on: ', this.id);
         const queryHandler = new QueryHandler({
           page: new URLSearchParams(window.location.search).get('page') || null,
           id: this.id,

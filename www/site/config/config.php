@@ -99,9 +99,9 @@ kirby()->hook('panel.page.update', function($page) {
     require '../../vendor/cloudinary/cloudinary_php/src/Error.php';
 
     \Cloudinary::config(array(
-      "cloud_name" => "richterskala",
-      "api_key" => "741172134745961",
-      "api_secret" => "1duseF1b_P38_f_XFL7MMDPnpag"
+      "cloud_name" => "deqqo69yu",
+      "api_key" => "858561582444365",
+      "api_secret" => "qSSVPP-s-nbT6b7rgscCoLzQ0Ks"
     ));
 
     try {

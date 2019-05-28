@@ -18,16 +18,16 @@ const CONFIG_PAGINATION = {
 
 const filtered = (articles) => {
   const tag = new URLSearchParams(window.location.search).get('tag') || null;
-  console.log(articles);
+  // console.log(articles);
   if (tag !== null) {
-    console.log('Tag');
+    // console.log('Tag');
     const filteredArticles = [];
     articles.forEach((article) => {
       if (article.info.meta.tags.includes(tag)) {
         filteredArticles.push(article);
       }
     });
-    console.log('Filtered Articles: ', filteredArticles);
+    // console.log('Filtered Articles: ', filteredArticles);
     return filteredArticles;
   } else {
     return articles;
@@ -49,7 +49,7 @@ class Pagination {
   }
 
   init() {
-    console.log('Pages: ', this.pages, this.articles.length, this.articles);
+    // console.log('Pages: ', this.pages, this.articles.length, this.articles);
 
     this.checkArticleLength();
     this.paginateArticles();
@@ -104,7 +104,7 @@ class Pagination {
         this.stripId();
         this.currentPage = pagerItem.dataset.page;
         this.tag = new URLSearchParams(window.location.search).get('tag');
-        console.log(pagerItem, this.currentPage);
+        // console.log(pagerItem, this.currentPage);
         const queryHandler = new QueryHandler({
           page: this.currentPage,
           id: null,
@@ -146,7 +146,7 @@ class Pagination {
   renderArticles() {
     this.element.innerHTML = '';
     // console.log('Render Articles Before', this.element.innerHTML);
-    console.log('Current Page: ', this.articles[this.currentPage - 1]);
+    // console.log('Current Page: ', this.articles[this.currentPage - 1]);
     arrayFrom(this.articles[Number(this.currentPage - 1)]).forEach((article) => {
       // console.log('Article', article);
       const articleRenderer = new ArticleRenderer({
@@ -161,7 +161,7 @@ class Pagination {
 
   lookForItem() {
     if (this.currentItem !== null) {
-      console.log('Looking for ID', this.currentItem);
+      // console.log('Looking for ID', this.currentItem);
       this.articles.forEach((array, index) => {
         array.findIndex((element) => {
           if (this.currentItem === element.info.static.hash) {
@@ -174,9 +174,9 @@ class Pagination {
             this.currentPage = index + 1;
             this.toPage();
             this.openSlot(element);
-            console.log('Gude', element, this.currentPage);
+            // console.log('Gude', element, this.currentPage);
           } else {
-            console.log('Not matching');
+            // console.log('Not matching');
           }
         });
       });
@@ -198,7 +198,7 @@ class Pagination {
     const pagerItems = document.querySelectorAll('.pager-item');
 
     arrayFrom(pagerItems).forEach((item) => {
-      console.log(item, item.dataset.page, selectPage);
+      // console.log(item, item.dataset.page, selectPage);
       if (Number(selectPage) === Number(item.dataset.page)) {
         // console.log('Match');
         item.classList.add('active');

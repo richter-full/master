@@ -12,7 +12,7 @@ class ContentSlider {
   }
 
   createDomContent() {
-    console.log('SlidesContent: ', this.slidesContent, this.slidesContent.length);
+    // console.log('SlidesContent: ', this.slidesContent, this.slidesContent.length);
     if (this.slidesContent !== null && this.slidesContent.length > 1) {
       const wrapper = document.createElement('div');
       wrapper.classList.add('glide');

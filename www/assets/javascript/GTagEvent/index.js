@@ -4,7 +4,7 @@ class GTagEvent {
   }
 
   init() {
-    console.log(this.event.category);
+    // console.log(this.event.category);
     gtag('event', this.event.type, {
       'event_category': this.event.category,
       'event_action': this.event.action,

@@ -9,8 +9,8 @@ class ImageLoader {
     this.slotIndex = options.slotIndex;
     this.index = options.i + 1;
     this.imgConfig = {
-      testUrl: 'https://res.cloudinary.com/richterskala/image/upload/c_scale,e_blur_faces:2000,h_150,w_200/v1553697105/samples/people/boy-snow-hoodie.jpg',
-      baseUrl: 'https://res.cloudinary.com/richterskala/image/upload/',
+      testUrl: 'https://res.cloudinary.com/deqqo69yu/image/upload/c_scale,e_blur_faces:2000,h_150,w_200/v1553697105/samples/people/boy-snow-hoodie.jpg',
+      baseUrl: 'https://res.cloudinary.com/deqqo69yu/image/upload/',
       defaults: {
         height: 1000,
         width: 1500,

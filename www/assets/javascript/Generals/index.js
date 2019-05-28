@@ -5,7 +5,7 @@ class Generals {
   }
 
   init() {
-    console.log('Generals Init');
+    // console.log('Generals Init');
   }
 }
 

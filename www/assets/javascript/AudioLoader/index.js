@@ -9,9 +9,11 @@ class AudioLoader {
   }
 
   init() {
-    if(this.key === 'audioFile') {
+    if (this.key === 'audioFile') {
       return this.returnAudioTemplate(this.source[0]);
-    } else if (this.key === 'audioLink') {
+    }
+
+    if (this.key === 'audioLink') {
       return this.returnYoutubeEmbed(this.source[0].url);
     }
   }
@@ -19,7 +21,7 @@ class AudioLoader {
   returnAudioTemplate(source) {
     let audioTemplate = `
       <figure>
-        <audio src="https://res.cloudinary.com/richterskala/raw/upload/${this.article.info.static.title}/${this.article.info.static.hash}-${source.hash}.${source.extension}" controls>
+        <audio src="https://res.cloudinary.com/deqqo69yu/raw/upload/${this.article.info.static.title}/${this.article.info.static.hash}-${source.hash}.${source.extension}" controls>
           <p>Your browser does not support the audio element </p>
         </audio>
     `;

@@ -19,8 +19,8 @@ class VideoLoader {
   returnVideoTemplate(source) {
     let videoTemplate = `
       <figure>
-        <video controls="controls" height="360" loop poster="https://res.cloudinary.com/richterskala/image/upload/${this.article.info.static.title}/${this.article.info.static.hash}-${source.poster.hash}.${source.poster.extension}" preload="none" style="margin: 0 auto;display: block" width="640">
-          <source src="https://res.cloudinary.com/richterskala/raw/upload/${this.article.info.static.title}/${this.article.info.static.hash}-${source.hash}.${source.extension}" type="video/${source.extension}" />
+        <video controls="controls" height="360" loop poster="https://res.cloudinary.com/deqqo69yu/image/upload/${this.article.info.static.title}/${this.article.info.static.hash}-${source.poster.hash}.${source.poster.extension}" preload="none" style="margin: 0 auto;display: block" width="640">
+          <source src="https://res.cloudinary.com/deqqo69yu/raw/upload/${this.article.info.static.title}/${this.article.info.static.hash}-${source.hash}.${source.extension}" type="video/${source.extension}" />
         </video>
     `;
 

@@ -10,7 +10,7 @@ class QueryHandler {
   }
 
   init() {
-    console.log('QueryHander init', this.page, this.id, this.tag);
+    // console.log('QueryHander init', this.page, this.id, this.tag);
 
     if (this.params.get('page')) {
       this.params.delete('page');

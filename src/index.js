@@ -81,6 +81,5 @@ const initModules = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   initModules();
-  // removeEmptyContainers();
-  console.log('Modules Initialized: ', getModuleForInit());
+  // console.log('Modules Initialized: ', getModuleForInit());
 });
