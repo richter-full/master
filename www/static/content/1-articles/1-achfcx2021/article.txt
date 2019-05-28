@@ -1,0 +1,203 @@
+Title: ACHFCX2021
+
+----
+
+Subtitle: This is my Subtitle
+
+----
+
+Quote: 
+
+----
+
+Tags: test,lorem
+
+----
+
+Date: 2001-03-08
+
+----
+
+Main: 
+
+- >
+  bildschirmfoto-2019-03-25-um-09.39.32.png
+- >
+  bildschirmfoto-2019-03-25-um-09.39.32.png
+
+----
+
+Action: 
+
+- >
+  bildschirmfoto-2019-03-25-um-18.00.36.png
+
+----
+
+Mainimages: cyrus-gomez-1482044-unsplash.jpg,david-phan-1481568-unsplash.jpg,lisse-wets-1480536-unsplash.jpg
+
+----
+
+Actionimages: david-phan-1481568-unsplash.jpg
+
+----
+
+Additionalimages: cyrus-gomez-1482044-unsplash.jpg,david-phan-1481568-unsplash.jpg,lisse-wets-1480536-unsplash.jpg
+
+----
+
+Actionvideo: 
+
+----
+
+Aftervideo: 
+
+----
+
+Audio: 
+
+----
+
+Actionvideofile: 01-var-scoping-refresher.mp4
+
+----
+
+Actionvideolink: https://player.vimeo.com/video/8733915
+
+----
+
+Aftervideofile: 01-var-scoping-refresher.mp4
+
+----
+
+Aftervideolink: https://player.vimeo.com/video/8733915
+
+----
+
+Audiofile: 
+
+----
+
+Audiolink: https://www.youtube.com/embed/2ZrWHtvSog4
+
+----
+
+Quotetext: You got a permit for that? Well, they're your parents, you must know them. What are their common interests, what do they like to do together?
+
+----
+
+Quoteauthor: Und das mein Author
+
+----
+
+Zip: 63067
+
+----
+
+Degrees: 20
+
+----
+
+Weather: 2
+
+----
+
+Emotion: 1
+
+----
+
+Actionvideofiles: video-20190128-164132-f220bded.mp4
+
+----
+
+Aftervideofiles: video-20190128-164132-f220bded.mp4
+
+----
+
+Description: 
+
+# This will be my Description
+## This will be my Description
+### This will be my Description
+C'mon. Don't stop, Wilbert, drive. Let's get you into a radiation suit, we must prepare to reload. I think it's terrible. Girls chasing boys. When I was your age I never chased a boy, or called a boy, or sat in a parked car with a boy. When could weathermen predict the weather, let alone the future.
+
+## This will be my Description
+
+### This will be my Description
+Ahh. What the hell is a gigawatt? Bear with me, Marty, all of your questions will be answered. Roll tape, we'll proceed. You got a permit for that? Well, they're your parents, you must know them. What are their common interests, what do they like to do together?
+
+### This will be my Description
+Hey kid, what you do, jump ship? You extol me with a lot of confidence, Doc. George. Marty, I always wear a suit to the office. You alright? One point twenty-one gigawatts. One point twenty-one gigawatts. Great Scott.
+
+----
+
+Hello: Please update me sir !!
+
+----
+
+Slug: II
+
+----
+
+Uid: KK
+
+----
+
+Contentstructure: 
+
+- 
+  selector: mainImages
+  type: image
+  start: "1"
+  span: "9"
+- 
+  selector: additionalImages
+  type: image
+  start: "10"
+  span: "3"
+- 
+  selector: quote
+  type: quote
+  start: "3"
+  span: "6"
+- 
+  selector: actionVideoFiles
+  type: video
+  start: "1"
+  span: "3"
+- 
+  selector: afterVideoFiles
+  type: video
+  start: "7"
+  span: "6"
+- 
+  selector: meta
+  type: meta
+  start: 1
+  span: 6
+- 
+  selector: description
+  type: text
+  start: "4"
+  span: "8"
+- 
+  selector: actionImages
+  type: image
+  start: 1
+  span: 12
+
+----
+
+Mainimagesoptions: true
+
+----
+
+Actionimagesoptions: false
+
+----
+
+Additionalimagesoptions: true
+
+----
+
+Uploadtoggle: false

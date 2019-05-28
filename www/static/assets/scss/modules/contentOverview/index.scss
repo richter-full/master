@@ -1,0 +1,231 @@
+.mod--content-overview {
+  width: 100%;
+
+  &__item {
+    padding: #{$default-spacing * 4};
+    padding-top: 0;
+    height: $grid-95 / 12 * 3;
+    position: relative;
+    cursor: pointer;
+
+    @include breakpoint-max($breakpoint-small) {
+      height: $grid-100 / 12 * 6;
+      grid-column-end: span 6;
+    }
+
+    &__content__holder {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: $zindex-overview-content;
+    }
+
+    &__content__title {
+      position: absolute;
+      top: $grid-95 / 12;
+      left: 0;
+      right: 0;
+      text-align: left;
+      z-index: 10;
+
+      h1 {
+        font: $default-sans-serif;
+        font-size: 2.5vw;
+        color: $colors--black;
+        -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $colors--black;
+        transition: all 0.5s ease;
+        letter-spacing: 0.025em;
+
+        @include breakpoint-max($breakpoint-small) {
+          font-size: 6vw;
+        }
+      }
+
+      .icon__holder {
+        display: inline-block;
+        // background: $colors--white;
+        width: 30px;
+        height: 30px;
+        border: 1px solid $colors--black;
+        color: $colors--black;
+        font-size: 16px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 15px;
+        margin-right: 5px;
+
+        i {
+          transform: translate(6%, -5%);
+        }
+      }
+    }
+
+    &__thumbs__holder {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 100px;
+      bottom: 0;
+      z-index: $zindex-overview-thumbs;
+
+      @include breakpoint-max($breakpoint-small) {
+        top: 50px;
+      }
+
+      figure {
+        width: 60%;
+        height: 60%;
+        max-width: 200px;
+        max-height: 200px;
+        position: absolute;
+        transition: all 0.5s ease-out;
+
+        @include breakpoint-max($breakpoint-small) {
+          width: 50%;
+          height: 50%;
+          max-width: 150px;
+          max-height: 150px;
+        }
+
+        img {
+          box-shadow: 0 0 10px 0px rgba(160, 160, 160, 0.7);
+        }
+
+        &:nth-of-type(1) {
+          top: 0;
+          left: 0;
+          z-index: $zindex-overview-thumbs - 1;
+        }
+
+        &:nth-of-type(2) {
+          top: #{$default-spacing * 2};
+          left: #{$default-spacing * 2};
+          z-index: $zindex-overview-thumbs - 2;
+        }
+
+        &:nth-of-type(3) {
+          top: #{$default-spacing * 4};
+          left: #{$default-spacing * 4};
+          z-index: $zindex-overview-thumbs - 3;
+        }
+      }
+    }
+
+    &:hover,
+    &.active,
+    &:target {
+      h1 {
+        -webkit-text-fill-color: $colors--black; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $colors--black;
+      }
+
+      &:nth-of-type(odd) {
+        figure {
+          &:nth-of-type(1) {
+            top: (random(200) - 120) + px;
+            left: (random(200) - 120) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(100) - 60) + px;
+              left: (random(100) - 60) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(150) - 90) + px;
+              left: (random(150) - 90) + px;
+            }
+          }
+
+          &:nth-of-type(2) {
+            top: (random(200) - 120) + px;
+            left: (random(200) - 120) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(100) - 60) + px;
+              left: (random(100) - 60) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(150) - 90) + px;
+              left: (random(150) - 90) + px;
+            }
+          }
+
+          &:nth-of-type(3) {
+            top: (random(100) - 60) + px;
+            left: (random(100) - 60) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(50) - 30) + px;
+              left: (random(50) - 30) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(75) - 30) + px;
+              left: (random(75) - 30) + px;
+            }
+          }
+        }
+      }
+
+      &:nth-of-type(even) {
+        figure {
+          &:nth-of-type(1) {
+            top: (random(200) - 120) + px;
+            left: (random(200) - 120) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(100) - 60) + px;
+              left: (random(100) - 60) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(150) - 90) + px;
+              left: (random(150) - 90) + px;
+            }
+          }
+
+          &:nth-of-type(2) {
+            top: (random(200) - 120) + px;
+            left: (random(200) - 120) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(100) - 60) + px;
+              left: (random(100) - 60) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(150) - 90) + px;
+              left: (random(150) - 90) + px;
+            }
+          }
+
+          &:nth-of-type(3) {
+            top: (random(100) - 60) + px;
+            left: (random(100) - 60) + px;
+
+            @include breakpoint-max($breakpoint-small) {
+              top: (random(50) - 30) + px;
+              left: (random(50) - 30) + px;
+            }
+
+            @include breakpoint-max($breakpoint-medium) {
+              top: (random(75) - 30) + px;
+              left: (random(75) - 30) + px;
+            }
+          }
+        }
+      }
+
+
+      .icon__holder {
+        background: $colors--black;
+        color: $colors--white;
+        // border: 1px solid $colors--white;
+      }
+    }
+  }
+}

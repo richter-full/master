@@ -1,0 +1,142 @@
+// Slider Styling;
+
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+figure {
+  display: block;
+  // height: 200px;
+  position: relative;
+
+  .lazyload {
+    opacity: 0;
+  }
+
+  .lazyload__placeholder {
+    background: $colors--white;
+    // border: 1px solid $colors--black;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    transition: all 0.3s ease 0.5s;
+  }
+
+  .lazyloaded {
+    opacity: 1;
+  }
+
+  .lazyloaded + .lazyload__placeholder {
+    width: 0;
+    border: none;
+  }
+}
+
+figcaption {
+  font: $default-monospaced;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-top: 15px;
+
+  strong {
+    font-weight: 700;
+  }
+
+  @include breakpoint-max($breakpoint-medium) {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+}
+
+.glide {
+  &__slide {
+    // margin: 0 !important;
+  }
+
+  &__arrows {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    transform: translateY(-50%);
+    left: 0;
+
+    button {
+      -webkit-appearance: none;
+      border: 0;
+      outline: none;
+      padding: 0;
+      font-size: 3vw;
+      background: none;
+      cursor: pointer;
+      color: $colors--grey-light;
+      transition: all 0.3s ease;
+      -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: $colors--black;
+
+      &:hover {
+        color: $colors--black;
+        -webkit-text-fill-color: $colors--black; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $colors--black;
+      }
+
+      @include breakpoint-max($breakpoint-medium) {
+        font-size: 7vw;
+      }
+    }
+
+    .glide__arrow--left {
+      position: absolute;
+      left: 10px;
+    }
+
+    .glide__arrow--right {
+      position: absolute;
+      right: 10px;
+    }
+  }
+
+  &__bullets {
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: $default-spacing * 4;
+
+    button {
+      -webkit-appearance: none;
+      border: 1px solid $colors--black;
+      outline: none;
+      background: $colors--white;
+      width: 35px;
+      height: 2px;
+      cursor: pointer;
+      transition: all .3s ease;
+      margin: 0 3px;
+
+      &.glide__bullet--active,
+      &:hover,
+      &:target,
+      &:focus {
+        background: $colors--black;
+      }
+
+      &.glide__bullet--active {
+        width: 55px;
+      }
+    }
+  }
+}

@@ -1,0 +1,197 @@
+Title: ICSFED1541
+
+----
+
+Subtitle: This is my Subtitle
+
+----
+
+Quote: 
+
+----
+
+Tags: test,lorem,ipsum,dolor
+
+----
+
+Date: 2009-03-19
+
+----
+
+Main: 
+
+- >
+  bildschirmfoto-2019-03-25-um-09.39.32.png
+- >
+  bildschirmfoto-2019-03-25-um-09.39.32.png
+
+----
+
+Action: 
+
+- >
+  bildschirmfoto-2019-03-25-um-18.00.36.png
+
+----
+
+Mainimages: amelie-ohlrogge-1481695-unsplash.jpg,evan-r-1481903-unsplash.jpg,thomas-young-1480972-unsplash.jpg
+
+----
+
+Actionimages: evan-r-1481903-unsplash.jpg,thomas-young-1480972-unsplash.jpg
+
+----
+
+Additionalimages: thomas-young-1480972-unsplash.jpg
+
+----
+
+Actionvideo: 
+
+----
+
+Aftervideo: 
+
+----
+
+Audio: 
+
+----
+
+Actionvideofile: 01-var-scoping-refresher.mp4
+
+----
+
+Actionvideolink: https://player.vimeo.com/video/8733915
+
+----
+
+Aftervideofile: 01-var-scoping-refresher.mp4
+
+----
+
+Aftervideolink: https://www.youtube.com/embed/2ZrWHtvSog4
+
+----
+
+Audiofile: theme_a.mp3
+
+----
+
+Audiolink: https://www.youtube.com/embed/2ZrWHtvSog4
+
+----
+
+Quotetext: Das wird mein Zitat
+
+----
+
+Quoteauthor: Und das mein Author
+
+----
+
+Zip: 65456
+
+----
+
+Degrees: 15
+
+----
+
+Weather: 4
+
+----
+
+Emotion: 1
+
+----
+
+Actionvideofiles: 
+
+----
+
+Aftervideofiles: add-blur-from-nav.mp4,video-20190128-164132-f220bded.mp4
+
+----
+
+Description: 
+
+# This will be my Description
+## This will be my Description
+### This will be my Description
+
+----
+
+Contentstructure: 
+
+- 
+  selector: meta
+  type: meta
+  start: 1
+  span: 6
+- 
+  selector: quote
+  type: quote
+  start: 1
+  span: 6
+- 
+  selector: description
+  type: text
+  start: 1
+  span: 8
+- 
+  selector: mainImages
+  type: image
+  start: 1
+  span: 12
+- 
+  selector: actionImages
+  type: image
+  start: 1
+  span: 12
+- 
+  selector: additionalImages
+  type: image
+  start: 1
+  span: 12
+- 
+  selector: actionVideoFiles
+  type: video
+  start: 1
+  span: 8
+- 
+  selector: actionVideoLink
+  type: video
+  start: 1
+  span: 8
+- 
+  selector: afterVideoFiles
+  type: video
+  start: 1
+  span: 8
+- 
+  selector: afterVideoLink
+  type: video
+  start: 1
+  span: 8
+- 
+  selector: additionalAudio
+  type: audio
+  start: "9"
+  span: "4"
+
+----
+
+Mainimagesoptions: true
+
+----
+
+Actionimagesoptions: false
+
+----
+
+Additionalimagesoptions: false
+
+----
+
+Uploadtoggle: false

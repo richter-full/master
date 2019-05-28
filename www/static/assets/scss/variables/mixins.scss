@@ -1,0 +1,5 @@
+@mixin breakpoint-max($val) {
+  @media only screen and (max-width: $val) {
+    @content;
+  }
+}

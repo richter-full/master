@@ -1,5 +1,6 @@
 <?php
   c::set('debug', true);
+  c::set('staticbuilder', true);
   c::set('cache', false);
 
   // The code below are required for the kirby-webpack dev server to work

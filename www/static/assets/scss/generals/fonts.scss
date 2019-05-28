@@ -1,0 +1,50 @@
+@import 'line-awesome.scss';
+
+@font-face {
+  font-family: 'Suisse Works';
+  src: url('../../fonts/suisse/works/book-italic/suisseworks-bookitalic-webfont.eot');
+  src:
+    url('../../fonts/suisse/works/book-italic/suisseworks-bookitalic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/suisse/works/book-italic/suisseworks-bookitalic-webfont.woff2') format('woff2'),
+    url('../../fonts/suisse/works/book-italic/suisseworks-bookitalic-webfont.woff') format('woff'),
+    url('../../fonts/suisse/works/book-italic/suisseworks-bookitalic-webfont.ttf') format('truetype'),
+    url('../../fonts/suisse/works/book-italic/suisseworks-bookitalic-webfont.svg#svgFontName') format('svg');
+  font-weight: 400;
+  font-display: auto;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../../fonts/helvetica/HelveticaNeue-Medium.eot');
+  src:
+    url('../../fonts/helvetica/HelveticaNeue-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/helvetica/HelveticaNeue-Medium.woff') format('woff'),
+    url('../../fonts/helvetica/HelveticaNeue-Medium.ttf') format('truetype'),
+    url('../../fonts/helvetica/HelveticaNeue-Medium.svg#svgFontName') format('svg');
+  font-weight: 400;
+  font-display: auto;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MMono';
+  src:
+    url('../../fonts/maison-mono/regular/MaisonNeue-Mono.woff2') format('woff2'),
+    url('../../fonts/maison-mono/regular/MaisonNeue-Mono.woff') format('woff'),
+    url('../../fonts/maison-mono/regular/MaisonNeue-Mono.ttf') format('truetype');
+  font-weight: 400;
+  font-display: auto;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MMono';
+  src:
+    url('../../fonts/maison-mono/regular-italic/MaisonNeue-MonoItalic.woff2') format('woff2'),
+    url('../../fonts/maison-mono/regular-italic/MaisonNeue-MonoItalic.woff') format('woff'),
+    url('../../fonts/maison-mono/regular-italic/MaisonNeue-MonoItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-display: auto;
+  font-style: italic;
+}

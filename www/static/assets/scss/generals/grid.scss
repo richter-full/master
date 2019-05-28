@@ -1,0 +1,227 @@
+.grid {
+  display: grid;
+  grid-template-columns: [line1] calc(#{$grid-95} / 12) [line2] calc(#{$grid-95} / 12) [line3] calc(#{$grid-95} / 12) [line4] calc(#{$grid-95} / 12) [line5] calc(#{$grid-95} / 12) [line6] calc(#{$grid-95} / 12) [line7] calc(#{$grid-95} / 12) [line8] calc(#{$grid-95} / 12) [line9] calc(#{$grid-95} / 12) [line10] calc(#{$grid-95} / 12) [line11] calc(#{$grid-95} / 12) [line12] calc(#{$grid-95} / 12) [line13];
+  // grid-auto-rows: calc(#{$grid-100} / 12);
+  // grid-column-gap: 20px;
+  // grid-row-gap: 20px;
+
+  @include breakpoint-max($breakpoint-small) {
+    display: grid;
+    grid-template-columns: [line1] calc(#{$grid-100} / 12) [line2] calc(#{$grid-100} / 12) [line3] calc(#{$grid-100} / 12) [line4] calc(#{$grid-100} / 12) [line5] calc(#{$grid-100} / 12) [line6] calc(#{$grid-100} / 12) [line7] calc(#{$grid-100} / 12) [line8] calc(#{$grid-100} / 12) [line9] calc(#{$grid-100} / 12) [line10] calc(#{$grid-100} / 12) [line11] calc(#{$grid-100} / 12) [line12] calc(#{$grid-100} / 12) [line13];
+  }
+}
+
+
+
+.grid--slot {
+  display: grid;
+  grid-template-columns: [line1] calc(#{$grid-95} / 12) [line2] calc(#{$grid-95} / 12) [line3] calc(#{$grid-95} / 12) [line4] calc(#{$grid-95} / 12) [line5] calc(#{$grid-95} / 12) [line6] calc(#{$grid-95} / 12) [line7] calc(#{$grid-95} / 12) [line8] calc(#{$grid-95} / 12) [line9] calc(#{$grid-95} / 12) [line10] calc(#{$grid-95} / 12) [line11] calc(#{$grid-95} / 12) [line12] calc(#{$grid-95} / 12) [line13];
+  // grid-column-gap: 20px;
+  grid-row-gap: 20px;
+
+  @include breakpoint-max($breakpoint-small) {
+    display: grid;
+    grid-template-columns: [line1] calc(#{$grid-100} / 12) [line2] calc(#{$grid-100} / 12) [line3] calc(#{$grid-100} / 12) [line4] calc(#{$grid-100} / 12) [line5] calc(#{$grid-100} / 12) [line6] calc(#{$grid-100} / 12) [line7] calc(#{$grid-100} / 12) [line8] calc(#{$grid-100} / 12) [line9] calc(#{$grid-100} / 12) [line10] calc(#{$grid-100} / 12) [line11] calc(#{$grid-100} / 12) [line12] calc(#{$grid-100} / 12) [line13];
+  }
+}
+
+.grid-column-span {
+  &--1 {
+    grid-column-end: span 1;
+  }
+
+  &--2 {
+    grid-column-end: span 2;
+  }
+
+  &--3 {
+    grid-column-end: span 3;
+  }
+
+  &--4 {
+    grid-column-end: span 4;
+  }
+
+  &--5 {
+    grid-column-end: span 5;
+  }
+
+  &--6 {
+    grid-column-end: span 6;
+  }
+
+  &--7 {
+    grid-column-end: span 7;
+  }
+
+  &--8 {
+    grid-column-end: span 8;
+  }
+
+  &--9 {
+    grid-column-end: span 9;
+  }
+
+  &--10 {
+    grid-column-end: span 10;
+  }
+
+  &--11 {
+    grid-column-end: span 11;
+  }
+
+  &--12 {
+    grid-column-end: span 12;
+  }
+
+  @include breakpoint-max($breakpoint-small) {
+    &--1,
+    &--2,
+    &--3,
+    &--4,
+    &--5,
+    &--6,
+    &--7,
+    &--8,
+    &--9,
+    &--10,
+    &--11,
+    &--12 {
+      grid-column-end: span 12;
+    }
+  }
+}
+
+.grid-row-span {
+  &--1 {
+    grid-row-end: span 1;
+  }
+
+  &--2 {
+    grid-row-end: span 2;
+  }
+
+  &--3 {
+    grid-row-end: span 3;
+  }
+
+  &--4 {
+    grid-row-end: span 4;
+  }
+
+  &--5 {
+    grid-row-end: span 5;
+  }
+
+  &--6 {
+    grid-row-end: span 6;
+  }
+
+  &--7 {
+    grid-row-end: span 7;
+  }
+
+  &--8 {
+    grid-row-end: span 8;
+  }
+
+  &--9 {
+    grid-row-end: span 9;
+  }
+
+  &--10 {
+    grid-row-end: span 10;
+  }
+
+  &--11 {
+    grid-row-end: span 11;
+  }
+
+  &--12 {
+    grid-row-end: span 12;
+  }
+
+  @include breakpoint-max($breakpoint-small) {
+    &--1,
+    &--2,
+    &--3,
+    &--4,
+    &--5,
+    &--6,
+    &--7,
+    &--8,
+    &--9,
+    &--10,
+    &--11,
+    &--12 {
+      grid-row-end: span 6;
+    }
+  }
+}
+
+.grid-column-start {
+  &--1 {
+    grid-column-start: 1;
+  }
+
+  &--2 {
+    grid-column-start: 2;
+  }
+
+  &--3 {
+    grid-column-start: 3;
+  }
+
+  &--4 {
+    grid-column-start: 4;
+  }
+
+  &--5 {
+    grid-column-start: 5;
+  }
+
+  &--6 {
+    grid-column-start: 6;
+  }
+
+  &--7 {
+    grid-column-start: 7;
+  }
+
+  &--8 {
+    grid-column-start: 8;
+  }
+
+  &--9 {
+    grid-column-start: 9;
+  }
+
+  &--10 {
+    grid-column-start: 10;
+  }
+
+  &--11 {
+    grid-column-start: 11;
+  }
+
+  &--12 {
+    grid-column-start: 12;
+  }
+
+  @include breakpoint-max($breakpoint-small) {
+    &--1,
+    &--2,
+    &--3,
+    &--4,
+    &--5,
+    &--6,
+    &--7,
+    &--8,
+    &--9,
+    &--10,
+    &--11,
+    &--12 {
+      grid-column-start: 1;
+    }
+  }
+}
